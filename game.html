@@ -237,11 +237,14 @@ height="513" style="border:none; overflow:hidden">
             var div = (gpio_divs[i]);
             //console.log(div);
             div.innerText = gpio[i];
-            //console.log(gpio[i]);
+            console.log(gpio[i]);
+            
+            /*
             if(div[i]=255){
               div[i]+=255;
               console.log(div);
             }
+            */
             if (newIndices.indexOf(i) === -1) {
               div.classList.remove("new");
             } else {
