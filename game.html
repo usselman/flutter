@@ -213,10 +213,11 @@ height="513" style="border:none; overflow:hidden">
 
         <br />
 
-        <p><span style="color:#ff0000">Score:</span></p>
+        <p><span style="color:#ff0000">Score:</span> <span style="color:#3f893b">Gamestate:</span></p>
 
         <div class="gpio_values">
             <div class="0">0</div>
+            <div class="1">0</div>
         </div>
       
       <p style="font-size: 40px; color: #1f9afe"></p>
@@ -234,10 +235,13 @@ height="513" style="border:none; overflow:hidden">
         gpio.subscribe(function (newIndices) {
           console.log(newIndices);
           for (var i = 0; i < 8; i++) {
-            var div = (gpio_divs[i]);
+            var div = (gpio_divs[0]);
+            var div2 = (gpio_divs[1]);
             //console.log(div);
-            div.innerText = gpio[i];
-            console.log(gpio[i]);
+            div.innerText = gpio[0];
+            div2.innerText = gpio[1];
+            console.log('Player score: ' + gpio[0]);
+            console.log('Gamestate: ' + gpio[1]);
             
             /*
             if(div[i]=255){
