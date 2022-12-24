@@ -230,32 +230,81 @@ height="513" style="border:none; overflow:hidden">
     <script src="scripts/pico8-gpio-listener.js"></script>
     <script>
       (function () {
-        var gpio_divs = document.querySelectorAll(".gpio_values div");
-        var gpio = getP8Gpio();
-        gpio.subscribe(function (newIndices) {
-          console.log(newIndices);
-          for (var i = 0; i < 8; i++) {
-            var div = (gpio_divs[0]);
-            var div2 = (gpio_divs[1]);
-            //console.log(div);
-            div.innerText = gpio[0];
-            div2.innerText = gpio[1];
-            console.log('Player score: ' + gpio[0]);
-            console.log('Gamestate: ' + gpio[1]);
-            
-            /*
-            if(div[i]=255){
-              div[i]+=255;
-              console.log(div);
-            }
-            */
-            if (newIndices.indexOf(i) === -1) {
-              div.classList.remove("new");
-            } else {
-              div.classList.add("new");
-            }
+
+        
+        class Game {
+          constructor({ gpio, onStart, onEnd, onNewScore }) {
+            this.score = 0;
+            this.gamestate = 0;
+            this.gpio = gpio
+            this.onStart = onStart;
+            this.onEnd = onEnd;
+            this.onNewScore = onNewScore;
           }
-        });
+
+          subscribe() {
+            this.gpio.subscribe((newIndices) => {
+              if (newIndices.indexOf(0) !== -1) {
+                this.score = this.gpio[0];
+              }
+              if (newIndices.indexOf(1) !== -1) {
+                this.gamestate = this.gpio[1];
+              }
+            });
+          }
+
+          set score(score) {
+            if (this._score != score) {
+              //console.log('Score changed to: ' + score);
+            }
+            this._score = score;
+          }
+
+          set gamestate(gamestate) {
+            if (this._gamestate != gamestate) {
+              console.log('Gamestate changed to: ' + gamestate);
+
+              switch(gamestate) {
+                case 1:
+                  this.onStart()
+                  break;
+                case 2:
+                  this.onEnd({ score: this._score })
+                  break;
+              }
+            }
+            this._gamestate = gamestate;
+          }
+
+        }
+
+        var gpio = getP8Gpio();
+
+        const game = new Game({
+
+          gpio,
+          
+          onNewScore(score) {
+            console.log('New score', { score });
+          },
+
+          onStart() {
+            console.log('Game started');
+            // Post to the API and create a Play in Haste and record it in the database
+          },
+
+          onEnd({ score }) {
+            console.log('Game ended', { score });
+
+            // Post to API and create Score in Haste and record it in the database
+            // Update the Play in the database now that it is complete
+          }
+
+        })
+
+        game.subscribe()
+
+
       })();
     </script>
   </body>
