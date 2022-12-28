@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- PLEASE NO CHANGES BELOW THIS LINE (UNTIL I SAY SO) -->
+    <script
+      language="javascript"
+      type="text/javascript"
+      src="libraries/p5.min.js"
+    ></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/addons/p5.dom.js"></script>
+    <script
+      language="javascript"
+      type="text/javascript"
+      src="vortex.js"
+    ></script>
+    <!-- OK, YOU CAN MAKE CHANGES BELOW THIS LINE AGAIN -->
+
+    <link rel="stylesheet" href="styles/style.css" />
+
+
+    <!-- embedded styles for Pico Canvas-->
+    <style type="text/css">
+    <!--
+        .gpio_values {
+            margin-top: 1rem;
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-pack: center;
+            justify-content: center;
+        }
+
+        .gpio_values > * {
+            font-weight: bold;
+            font-size: 24px;
+            width: 50px;
+        }
+
+        .gpio_values > *.new {
+            color: #3f893b; /* pico-8 red */
+        }
+
+        canvas#canvas { width: 600px; height: 600px; }
+        
+        .pico8_el {
+            float:left;
+            width:92px;
+            display:inline-block; 
+            margin: 1px;
+            padding: 4px;
+            text-align: center;
+            color:#fff;
+            background-color:#777;
+            font-family : verdana;
+            font-size: 9pt;
+            cursor: pointer;
+            cursor: hand;
+            border: 25px;
+            border-radius: 10px;
+            border-color: #000;
+        }
+        .pico8_el a{
+            text-decoration: none;
+            color:#fff;
+        }
+
+        .pico8_el:hover{
+            background-color:#aaa;
+        }
+
+        .pico8_el:link{
+            background-color:#aaa;
+        }
+
+        canvas{
+            image-rendering: optimizeSpeed;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: optimize-contrast;
+            image-rendering: pixelated;
+            -ms-interpolation-mode: nearest-neighbor;
+            border: 10px;
+            border-radius: 10px;
+        }
+      
+    </style>
+  </head>
+
+  <body>
+    <meta charset="utf-8" />
+    <title>Game</title>
+    <center>
+      <h1>flutter</h1>
+      <h2>
+        built by shirish sarkar using
+        <p><a href="https://www.lexaloffle.com/pico-8.php">PICO-8</a></p>
+      </h2>
+      <h3>a wb games product</h3>
+      <div id="game">
+        <!-- javascript canvas for pico game-->
+        <canvas
+          class="emscripten"
+          id="canvas"
+          oncontextmenu="event.preventDefault()"
+        ></canvas>
+
+        <script type="text/javascript">
+          var canvas = document.getElementById("canvas");
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+
+          // show Emscripten environment where the canvas is
+          // arguments are passed to PICO-8
+
+          var Module = {};
+          Module.canvas = canvas;
+
+          /*
+        // When pico8_buttons is defined, PICO-8 takes each int to be a live bitfield
+        // representing the state of each player's buttons
+        
+        var pico8_buttons = [0, 0, 0, 0, 0, 0, 0, 0]; // max 8 players
+        pico8_buttons[0] = 2 | 16; // example: player 0, RIGHT and Z held down
+        
+        // when pico8_gpio is defined, reading and writing to gpio pins will
+        // read and write to these values
+        var pico8_gpio = new Array(128);
+    */
+</script>
+
+<script async type="text/javascript" src="flutter.js"></script>
+
+<script>
+  // key blocker. prevent cursor keys from scrolling page while playing cart.
+
+  function onKeyDown_blocker(event) {
+    event = event || window.event;
+    var o = document.activeElement;
+    if (!o || o == document.body || o.tagName == "canvas") {
+      if ([32, 37, 38, 39, 40].indexOf(event.keyCode) > -1) {
+        if (event.preventDefault) event.preventDefault();
+      }
+    }
+  }
+
+  document.addEventListener("keydown", onKeyDown_blocker, false);
+</script>
+<br>	
+
+<!--
+<iframe src="https://www.lexaloffle.com/bbs/widget.php?pid=sihozewiti" allowfullscreen width="621" 
+height="513" style="border:none; overflow:hidden">
+</iframe>
+-->
+
+<br />
+
+        <div class="pico8_el" onclick="Module.pico8Reset();">
+          <img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAaklEQVR4Ae2dOwoAMQhE15A+rfc/3bZ7AlMnQfywCkKsfcgMM9ZP+QHtIn0vLeBAFduiFdQ/0DmvtR5LXJ6CPSXe2ZXcFNlTxFbemKrbZPs35XogeS9xeQr+anT6LzoOwEDwZJ7jwhXUnwkTTiDQ2Ja34AAAABB0RVh0TG9kZVBORwAyMDExMDIyMeNZtsEAAAAASUVORK5CYII="
+            alt="Reset"
+            width="12"
+            height="12"
+          />
+
+          Reset
+        </div>
+
+        <div class="pico8_el" onclick="Module.pico8TogglePaused();">
+          <img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAPUlEQVR4Ae3doQ0AIAxEUWABLPtPh2WCq26DwFSU/JPNT166QSu/Hg86W9dwLte+diP7AwAAAAAAgD+A+jM2ZAgo84I0PgAAABB0RVh0TG9kZVBORwAyMDExMDIyMeNZtsEAAAAASUVORK5CYII="
+            alt="Pause"
+            width="12"
+            height="12"
+          />
+
+          Pause
+        </div>
+        <div class="pico8_el" onclick="Module.requestFullScreen(true, false);">
+          <img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAaklEQVR4Ae2dsQ1AIQhExfze1v2ns3UCrfgFhmgUUAoGgHscp21wX9BqaZoDojbB96OkDJKNcTN2BHTyYNYmoT2BlPL7BKgcPfHjAVXKKadkHOn9K1r16N0czN6a95N8mnA7Aq2fTZ3Af3UKmCSMazL8HwAAABB0RVh0TG9kZVBORwAyMDExMDIyMeNZtsEAAAAASUVORK5CYII="
+            alt="Fullscreen"
+            width="12"
+            height="12"
+          />
+
+          Fullscreen
+        </div>
+        <div class="pico8_el" onclick="Module.pico8ToggleSound();">
+          <img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAXklEQVR4Ae2doQ4AIQxD4YLH8v9fh+ULhjpxxSwLg2uyapr1JRu1iV5Z+1BGl4+xNpX38SYo2uRvYiT5LwEmt+ocgXVLrhPEgBiw8Q5w7/kueSkK+D2tJO4E/I3GrwkqQCBabEj/4QAAABB0RVh0TG9kZVBORwAyMDExMDIyMeNZtsEAAAAASUVORK5CYII="
+            alt="Toggle Sound"
+            width="12"
+            height="12"
+          />
+
+          Sound
+        </div>
+        <div class="pico8_el">
+          <a
+            target="_new"
+            href="https://www.lexaloffle.com/bbs/?pid=sihozewiti#p"
+          >
+            <img
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAlElEQVR4Ae2dMQ5FQBCGh6jcwAkkateg3DiAa+iQUGqVKi95FQfAJRQOoHeBUf8JyQqKjZ1uMzuz2e/LTE3KhyF7kSlgLOykas23f6D+A9Yp84aAOYU15pcJnfji0Il2ID8HzC4y38ZrnfIBGxeRoR3c3EWrACdsV5BOsx7OSRnrOXh4F5HzA6bevwUn8wlz7eCDsQM99B3ks0s/4QAAABB0RVh0TG9kZVBORwAyMDExMDIyMeNZtsEAAAAASUVORK5CYII="
+              alt="More Carts"
+              width="12"
+              height="12"
+            />
+
+            Carts</a
+          >
+        </div>
+
+        <br />
+
+        <p><span style="color:#ff0000">Score:</span> <span style="color:#3f893b">Gamestate:</span></p>
+
+        <div class="gpio_values">
+            <div class="0">0</div>
+            <div class="1">0</div>
+        </div>
+      
+      <p style="font-size: 40px; color: #1f9afe"></p>
+      <p>send me a screenshot with your highest score!</p>
+      <p>all feedback welcome</p>
+      <p>email: sarkar.shirish@gmail.com</p>
+      <a href="https://shirish.neocities.org/">home</a>
+    
+
+    <script src="scripts/pico8-gpio-listener.js"></script>
+    <script>
+      (function () {
+
+        
+        class Game {
+          constructor({ gpio, onStart, onEnd, onNewScore }) {
+            this.score = 0;
+            this.gamestate = 0;
+            this.gpio = gpio
+            this.onStart = onStart;
+            this.onEnd = onEnd;
+            this.onNewScore = onNewScore;
+          }
+
+          subscribe() {
+            this.gpio.subscribe((newIndices) => {
+              if (newIndices.indexOf(0) !== -1) {
+                this.score = this.gpio[0];
+              }
+              if (newIndices.indexOf(1) !== -1) {
+                this.gamestate = this.gpio[1];
+              }
+            });
+          }
+
+          set score(score) {
+            if (this._score != score) {
+              //console.log('Score changed to: ' + score);
+            }
+            this._score = score;
+          }
+
+          set gamestate(gamestate) {
+            if (this._gamestate != gamestate) {
+              console.log('Gamestate changed to: ' + gamestate);
+
+              switch(gamestate) {
+                case 1:
+                  this.onStart()
+                  break;
+                case 2:
+                  this.onEnd({ score: this._score })
+                  break;
+              }
+            }
+            this._gamestate = gamestate;
+          }
+
+        }
+
+        var gpio = getP8Gpio();
+
+        const game = new Game({
+
+          gpio,
+          
+          onNewScore(score) {
+            console.log('New score', { score });
+          },
+
+          onStart() {
+            console.log('Game started');
+            // Post to the API and create a Play in Haste and record it in the database
+          },
+
+          onEnd({ score }) {
+            console.log('Game ended', { score });
+
+            // Post to API and create Score in Haste and record it in the database
+            // Update the Play in the database now that it is complete
+          }
+
+        })
+
+        game.subscribe()
+
+
+      })();
+    </script>
+  </body>
+</html>
