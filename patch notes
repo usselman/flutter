@@ -3,3 +3,8 @@
     - removed flashing lights from title screen
     - changed number of enemies to be easier
 
+12-27-22
+    - fixed window sizing
+    - added header files
+    - added back in colors
+    
