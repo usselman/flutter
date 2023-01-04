@@ -1,5 +1,5 @@
 --update and draw
-music(0,0,0)
+music(10,0,15)
 --menu functions--
 function update_menu()
 		if btnp(❎) then
@@ -34,18 +34,19 @@ function draw_menu()
 	circfill(64,64,52,7)
 	circfill(64,64,50,3)
 	
-	circ(64,64,50,6)
-	circ(64,64,48,1)
+	circ(64,64,58,6)
+	circ(64,64,56,1)
 		wind={}
 		
 		--start screen
 		print("✽flutter✽",44,27,rnd(16))
-		addwind(28,36,90,72,
+		addwind(28,36,90,80,
 		{"press x to start!",
 		"x=jump! ⬅️=slow!",
 		"x in air=fly!",
 		"good luck, runner!",
-		"✽wb games 2022✽"})
+		"✽wb games 2023✽",
+	    "     v 0.1     "})
 		drawind()
 end
 
@@ -276,7 +277,7 @@ function draw_game()
 	
 	
 	print("score:",cam_x+6,10,7)
-	print(" "..flr(player.score),cam_x+30,10,15)
+	print(" "..flr(player.score),cam_x+30,10,rnd(15))
     --print("dx: "..player.spd, cam_x+6,30)
 
 end

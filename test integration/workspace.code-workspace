@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../gpio example"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "flutter integration"
+	}
+}
