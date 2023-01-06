@@ -4,7 +4,7 @@ function _init()
 	
 	--menu
 	scene="menu"
-	state = 0
+	state=0
 	
 	--stars
 	map1y=0
@@ -39,8 +39,8 @@ function _init()
 		spd=0,
 	}
 	
-	--up down ghost
-	enemy_list = {}
+  --up down ghost
+  enemy_list = {}
   for i=1,4 do
   local enemy={
   sp=33,
@@ -60,7 +60,7 @@ function _init()
  
  --side ghost
  enemy2_list = {}
-  for i=1,8 do
+  for i=1,7 do
   local enemy={
   sp=16,
    -- this or something similar so they don't end up in the same spot
@@ -68,7 +68,7 @@ function _init()
   y=flr(rnd(84))+12,
   w=8,
   h=8,
-  dx=-(rnd(1.4)+.25),
+  dx=-(rnd(1.5)+.25),
   dy=0,
   dir=0
   }
@@ -143,7 +143,7 @@ function _init()
 	--test = true
 	-----------------------
 
-	for x=0,24 do
+	for x=0,2 do
 	map_gen()
 	rescroll=false
 	end

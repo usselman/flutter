@@ -133,6 +133,7 @@ function update_game()
 	--]]
 	camera(cam_x,0)
 
+	
 end
 
 function draw_game()
@@ -177,22 +178,17 @@ function draw_game()
   enemy_update(enemy_list[i])
   enemy_animate(enemy_list[i])
   spr(enemy_list[i].sp,enemy_list[i].x,enemy_list[i].y)
-		--[[
-		if enemy_collide(player,"right",3,enemy_list[i]) then
-			player.dead=true
-		end
-		--]]
-	end
-	end
 	
+	end
+	end
+
+
 	for i=1,#enemy2_list do
 		enemy2_update(enemy2_list[i])
+
+		--enemy always on lowest y
+		enemy2_list[1].y = 94
 		spr(enemy2_list[i].sp,enemy2_list[i].x,enemy2_list[i].y) 
- 	--[[
- 	if	ememy_collide(player,"right",3,enemy2_list[i]) then
- 		player.dead=true
- 	end
- 	--]]
  
  end
  end
