@@ -1,7 +1,6 @@
 --map gen--
 
 function map_gen()
-	cls()
 	gen_tiles()
 	rescroll=false
 end
@@ -11,7 +10,8 @@ end
 ------------
 function gen_tiles()
 	
-	local t=rndtiles(5,1)	
+	--create random tiles of w, h
+	local t=rndtiles(7,1)	
 	place_tile(t)
 
 end
@@ -30,23 +30,29 @@ function rndtiles(mw,mh)
 end
 
 function place_tile(t)
-	local cand,c={}
+	local cand={}
+	--   for _y=3,10,3 do
+	-- 	for _x=1,127 do
+	-- 	--clear objects
+		
+	-- 	end
+	-- end
 
-	for _x=32,127,2 do
-		--for _y=16,48 do
+	for _x=48+cam_x_offset,111,2 do
 			for _y=4,11,3 do
 			if doestilefit(t,_x,_y) then
 				
 				add(cand,{x=rnd(_x),y=_y})
-				if rescroll then
-					for i=1,#cand do
-						del(cand,i)
-					end
-				end
+				-- if rescroll then
+				-- 	for i=1,#cand do
+				-- 		del(cand,i)
+				-- 	end
+				-- end
 				
 			end
 		end
 	end
+
 
 	if #cand==0 then return false end
 
@@ -55,13 +61,17 @@ function place_tile(t)
 	t.y=c.y
 	
 	
+	--draw tiles
 	for _x=0,t.w do
 		for _y=0,t.h-1 do
+			rock=0
 			tile=65
 			pot=0
+			diamond=0
 			grass=0
 			trap=0
 			coin=0
+			pile=0
 				if _x%2==1 then
 					tile=81
 					grass=100
@@ -69,9 +79,12 @@ function place_tile(t)
 				if _x%5==1 then
 					tile=114
 					grass=101
-				end
+					--rock=89
+					--pile=121
+				end	
 				if _x%3==1 then
-					pot=68
+					--pot=68
+					diamond=104
 					grass=116
 					
 				end
@@ -79,19 +92,37 @@ function place_tile(t)
 					grass=117
 				end
 				if _x%5==1 then
-					trap=97
+					--diamond=105
+				end
+				if _x%2==0 then
+					grass=116
 				end
 				
 				mset(_x+t.x+10,_y+t.y,tile)
-				mset(t.x+1+10,t.y-1,pot)
+				--mset(t.x+1+10,t.y-1,pot)x
+				mset(t.x+1+12,t.y-1,diamond)
+				--mset(t.x+3+10,t.y-1,diamond)
+				if player.jumping then
+					--mset(t.x+1+10,t.y-1, 105)
+				end
+				--mset(t.x+2+13,t.y-1,rock)
 				mset(t.x+2+10,t.y-1,grass)
-				mset(t.x+3+10,t.y-1,trap)
+				--mset(t.x+3+10,t.y-1,trap)
+				--mset(t.x+2+10,t.y-1,pile)
 		end
 	end	
+	return c
 end
 
 function map_update()
-
+	--clear tiles
+	for _y=4,11,3 do
+		for _x=1,127 do
+			--clear tiles and objects
+		  	mset(_x, _y, 0)
+			mset(_x, _y-1,0)
+		end
+	  end
 end
 
 function getrnd(arr)

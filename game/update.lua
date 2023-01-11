@@ -1,5 +1,5 @@
 --update and draw
-music(10,0,15)
+music(13,100,7)
 --menu functions--
 function update_menu()
 		if btnp(❎) then
@@ -18,10 +18,13 @@ function draw_menu()
 		map(48,16,bg_x,map2y,16,16)
 		map(32,16,bg_x+127,map1y-map_height,16,16)
 		map(48,16,bg_x+127,map2y-map_height,16,16)
-		
+
 
 		end
 	end
+	
+	map(0,0,map_x-map_end,0,map_end,16)	
+
 	--stars--------
 	map1y+=map1_spd
 	map2y+=map2_spd
@@ -44,13 +47,16 @@ function draw_menu()
 		{"press x to start!",
 		"x=jump! ⬅️=slow!",
 		"x in air=fly!",
-		"good luck, runner!",
+		"good luck, flutter!",
 		"✽wb games 2023✽",
-	    "     v 0.1     "})
+	    "     v 0.3     "})
 		drawind()
+
+	
 end
 
 function _update()
+	update_particles()
  --menu--
  if scene=="menu" then
  		update_menu()
@@ -66,8 +72,10 @@ function _draw()
 	--state
 	if scene=="menu" then
  		draw_menu()
- elseif scene=="game" then
+ 	elseif scene=="game" then
  		draw_game()
+	elseif scene=="dead" then
+		
  end
 end
 
@@ -77,32 +85,24 @@ function update_game()
  	
 	rand=rnd(16)
 	if btn(❎) then
-	 player.start=true
- end
+	 	player.start=true
+	end
 	
 	
 	
 	if player.start then
 	sec=time()
-		--rescroll=true
 		if player.start and trigstart==false then
-			--sfx(1,-1,4)
 			trigstart=true
 		else 
 			trigstart=true
 		end
 		
 		trigscore=false
-		
-		map_update()
+
 		player_update()
 		player_animate()
-		particle_update(player.x,player.y)
 		
-		
-		break_pot()
-		
-		--enemy_collide(player)
 		
 	end
 	
@@ -131,7 +131,7 @@ function update_game()
 		cam_x=map_end-128
 	end
 	--]]
-	camera(cam_x,0)
+	camera(cam_x+cam_x_offset,0)
 
 	
 end
@@ -141,9 +141,9 @@ function draw_game()
 	
 	bg_x=map_x
 	
----bg----
-	for map_x=0,map_end,127 do
-		for bg_x=0, map_end,127 do
+	---bg----
+	for map_x=-map_end,map_end,127 do
+		for bg_x=-map_end, map_end,127 do
 	--candles--------------------
 	map(0,16,map_x,0,16,16)
 	
@@ -154,69 +154,88 @@ function draw_game()
 	map(48,16,bg_x+127,map2y-map_height,16,16)
 	
 	--pillars--
-	map(16,16,map_x,0,16,16)
+	map(16,16,map_x-player.dx,0,16,16)
 		end
 	end
 	
 	--map_x-=bg_spd
 	--map scroll----------------
-	map(0,0,map_x,0,map_end,16)
+	--map(0,0,map_x,0,map_end,16)
 	
 	--level--
 	map(0,0,0,0,map_x+map_end,16)
 	map(0,0,map_end,0,8,16)
 	map(0,0,-map_end,0,8,16)
 
+	--rescrolling
+	map(0,0,map_x-map_end,0,map_end,16)	
+	map(0,0,map_x+map_end,0,map_end,16)
+
+	--animate diamonds
+
+	--draw particles
+	draw_particles()
+
 	--player--
 	spr(player.sp,player.x,player.y,1,1,player.flp)
+
+	-- for x=0,1024 do
+	-- 	for y=0,15 do
+	-- 	  if fget(104, 2) == false then
+	-- 		--add(gems, {x, y})
+	-- 		mset(x, y, 0)
+	-- 	  end
+	-- 	end
+	--   end
+
+
 	
 	if player.start then
+	--diamonds
+	diamonds()
 	
 	if sec>20 then
-	for i=1,#enemy_list do
-		--for j=1,#enemy2_list do
-  enemy_update(enemy_list[i])
-  enemy_animate(enemy_list[i])
-  spr(enemy_list[i].sp,enemy_list[i].x,enemy_list[i].y)
+		for i=1,#enemy_list do
+  			enemy_update(enemy_list[i])
+  			enemy_animate(enemy_list[i])
+  		spr(enemy_list[i].sp,enemy_list[i].x,enemy_list[i].y)
+
 	
-	end
+		end
 	end
 
 
 	for i=1,#enemy2_list do
 		enemy2_update(enemy2_list[i])
+		
 
 		--enemy always on lowest y
 		enemy2_list[1].y = 94
+
+		--enemy always on highest y
+		enemy2_list[4].y = 16
+
 		spr(enemy2_list[i].sp,enemy2_list[i].x,enemy2_list[i].y) 
  
  end
  end
  
-	if player.jumping then
-		particle_update(player.x,player.y,17)
-		spr(particle.sp,particle.x,particle.y,1,1,player.flp)
-	end
-	if player.ducking then
-		particle_update(player.x,player.y,18)
-		spr(particle.sp,particle.x+5,particle.y-16,1,1,player.flp)
-	end
-	
 	
 	if player.spd%1==.25 then
-		
-		print("keep going!",player.x-14,player.y-10,rand)
+		--print("keep going!",player.x-14,player.y-10,rand)
+		--pal(rnd(15),5)
 		if trigspeed==false then
 			sfx(2)
 			trigspeed=true
 		else
 			trigspeed=true
 		end
-		--player.speeding=false
-		
 	end
+
+	--regenerate map
 	if rescroll==true then
-		for i=0,5 do
+		map_update()
+		for i=0,12 do
 			map_gen()
 		end
 	end
@@ -228,7 +247,7 @@ function draw_game()
 			--death sfx--
 			sfx(3,1)
 			sfx(6)
-			music(-1)
+			--music(-1)
 			trig=true
 		else
 			trig=true
@@ -240,8 +259,8 @@ function draw_game()
 		player.dx=0
 		player.dy=0
 		state=2
-		print("you died! press up",29,39)
-		print("score: "..flr(player.score),44,49,7)
+		print("you died! press up",29+cam_x_offset,39)
+		print("score: "..flr(player.score),44+cam_x_offset,49,7)
 		--change scene--
 		--scene="dead"
 		if btn(⬆️) then
@@ -271,9 +290,37 @@ function draw_game()
 		--drawind()
 	end
 	
-	
-	print("score:",cam_x+6,10,7)
-	print(" "..flr(player.score),cam_x+30,10,rnd(15))
+	--was 10
+	print("score:",cam_x+6+cam_x_offset,10,7)
+	print(" "..flr(player.score),cam_x+30+cam_x_offset,10,rnd(15))
     --print("dx: "..player.spd, cam_x+6,30)
+
+	if player.score>50 and player.score<120 then
+		print("get ready...",cam_x+6+cam_x_offset, 18, rnd(15))
+	end	
+
+	if player.score>500 and player.score<600 then
+		print("keep going!",cam_x+6+cam_x_offset, 18, rnd(15))
+	end	
+
+	if player.score>1200 and player.score<1350 then
+		print("pretty good!",cam_x+6+cam_x_offset, 18, rnd(15))
+	end	
+
+	if player.score>1650 and player.score<1800 then
+		print("wow!",cam_x+6+cam_x_offset, 18, rnd(15))
+	end	
+
+	if player.score>2000 and player.score<2300 then
+		print("keep going!",cam_x+6+cam_x_offset, 18, rnd(15))
+	end	
+
+	if player.score>2500 and player.score<3000 then
+		print("you're amazing!",cam_x+6+cam_x_offset, 18, rnd(15))
+	end	
+
+	if player.score>3200 and player.score<3600 then
+		print("flutter my heart <3",cam_x+6+cam_x_offset, 18, rnd(15))
+	end	
 
 end

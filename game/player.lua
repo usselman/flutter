@@ -1,6 +1,11 @@
 --player
 
 function player_update()
+
+	if player.score<=0 then
+		player.score=0
+	end
+
 	if player.acc>0 and
 	player.dead==false
 	 then
@@ -26,6 +31,7 @@ function player_update()
 	
 	if btn(⬅️) then
 		player.dx+=-1
+		player.score-=player.spd/2
 	end
 	
 	--jump
@@ -41,6 +47,7 @@ function player_update()
 	--duck
 	if btn(⬇️) then
 		player.ducking=true
+		--player.y = 2
 	else 
 		player.ducking=false	
 	end	
@@ -54,7 +61,9 @@ function player_update()
 		player.jumping=false
 		if player.falling then
 			if btnp(❎) then
-				player.dy-=player.boost/1.5
+				--player.dy-=player.boost/1.5
+				--flutterjump
+				player.dy-=player.boost/0.5
 				player.landed=false
 				player.jumping=true
 				sfx(5)
@@ -65,6 +74,9 @@ function player_update()
 		player.dy=limit_speed(player.dy,player.max_dy)
 		
 		if collide_map(player,"down",0) then
+			if player.ducking then
+				--player.h
+			end
 			player.landed=true
 			player.falling=false
 			player.dy=0
@@ -80,8 +92,10 @@ function player_update()
 		player.jumping=true
 		
 		if collide_map(player,"up",1) then
-			player.dy=0
-			player.score-=10
+			player.dy+=3
+			player.dx=0
+			sfx(7, 2)
+			--player.score-=10
 			
 			-------test------
 			collide_u="yes"
@@ -112,8 +126,10 @@ function player_update()
 		if collide_map(player,"right",1) then
 			player.dx=0
 			if player.dx==0 then
-				player.x+=-.8
+				--player.x+=-.8
+				player.dx+=-4
 				player.dy+=.5
+				sfx(7, 2)
 			end
 			-------test------
 			collide_r="yes"
@@ -129,11 +145,9 @@ function player_update()
 	player.y+=player.dy
  
  if player.dx==0 then
- 	player.score-=5	
+ 	--player.score-=5	
  end
- if player.score<=0 then
-    player.score=0
-end
+ 
  
  --death conditions	
 	if collide_map(player,"right",3) then
@@ -142,51 +156,59 @@ end
 		player.dead=true	
 	elseif collide_map(player,"up",3) then
 		player.dead=true
+	elseif collide_map(player,"left",3) then
+		player.dead=true
+	elseif player.y<0 then
+		player.dead=true
 	elseif player.y>128 then
 		player.dead=true	
 	end
-	
-	--powerups
-	if collide_map(player,"right",2) then
-		if trigscore==false then
-			sfx(4)
-			
-			player.score*=1.05
-			trigscore=true
-			showmsg("x1.25!",50,player.y)
-		else
-			trigscore=false
-		end
-	end
-	
+
+	--scrolling!!!!--
 	if player.x>map_end-player.w then
-		--map.x=map_start
+
+		rescroll=true
+
+		--palette switch
+		-- for i=0,16 do
+		-- 	pal(i,rnd(16))
+		-- end
+
+		player.x=player.x-map_end
 		
-		player.x=map_start-player.w
-		
-		if player.x==map_start-player.w then
-			rescroll=true
-			return rescroll	
-		else
+	else
 			rescroll=false
-		end
-		
 	end
-		
+	return rescroll 
 end
 
 function player_animate()
 		if player.jumping then
 			player.sp=2
+			spawntrail(player.x,player.y)
+			
+			--pal(6,7)
 			
 		elseif player.ducking then
 			player.sp=4	
+			fset(65,0,false)
+			fset(81,0,false)
+			fset(114,0,false)
+			player.falling=true
 		elseif player.landed then
+			
 			player.sp=1
+			spawntrail(player.x,player.y)
 		elseif player.falling then
-			player.sp=3		
+			player.sp=3	
+			fset(65,0,true)
+			fset(81,0,true)
+			fset(114,0,true)
+			--spawntrail(player.x,player.y-player.w/2)	
 		end	
 	
+		--player particles
+		--spawntrail(player.x,player.y)
 end
 
 function limit_speed(dx,maximum)

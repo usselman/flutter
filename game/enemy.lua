@@ -3,15 +3,17 @@
 --up and down ball--
 function enemy_update(e)
 	local enemy=e
-	
+	spawncircle(e.x,e.y)
 	enemy.dy+=enemy.dir
 	enemy.y+=enemy.dy
 	enemy.x+=enemy.dx
+
+	--spawntrail(enemy.x+enemy.w +rnd(enemy.w),enemy.y)
 	
-	if enemy.y>80 then
+	if enemy.y>84 then
 			enemy.dy=-1
 	end		
-	if enemy.y<20 then 
+	if enemy.y<16 then 
 			enemy.dy=.5	
 	end
 	if enemy.x>map_end then
@@ -27,12 +29,33 @@ end
 function enemy2_update(e)
 	local enemy=e
 	e.x+=e.dx
-	
+	spawncircle(e.x,e.y)
+
+	-- if player.score>100 then
+	-- 	enemy2amt=10
+	-- end
+
+	--particle
+	--spawntrail(enemy.x+enemy.w+rnd(enemy.w*2),enemy.y)
+
 	--enemy.dx=-1	
-	if e.x<map_start then
-		e.x=map_end
-		e.y=flr(rnd(80))+16
+	--enemy reloader--
+	if (e.x<player.x-80 and player.x<map_end-128-cam_x_offset) then 
+		e.x=player.x+96
+		e.y=flr(rnd(68))+32
+		e.dx=-(rnd(1.5)+.25)
 	end
+
+	if rescroll then 
+		e.x=player.x+64+cam_x_offset+rnd(256)
+		e.dx=-(rnd(1.5)+.25)
+		e.y=flr(rnd(68))+32
+	end
+
+	-- if e.x<map_start then
+	-- 	e.x=map_end
+	-- 	e.y=flr(rnd(80))+16
+	-- end
 	
 	if	enemy_collide(player,"right",3,enemy) then
  		player.dead=true

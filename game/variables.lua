@@ -2,6 +2,9 @@
 
 function _init()
 	
+	--map blocks
+	c={}
+
 	--menu
 	scene="menu"
 	state=0
@@ -25,7 +28,8 @@ function _init()
 		max_dx=4,
 		max_dy=4,
 		acc=1.8,
-		boost=4.2,
+		--boost=4.2,
+		boost=3,
 		anim=0,
 		running=false,
 		jumping=false,
@@ -41,7 +45,7 @@ function _init()
 	
   --up down ghost
   enemy_list = {}
-  for i=1,4 do
+  for i=1,3 do
   local enemy={
   sp=33,
    -- this or something similar so they don't end up in the same spot
@@ -60,36 +64,46 @@ function _init()
  
  --side ghost
  enemy2_list = {}
-  for i=1,7 do
+	enemy2amt=4
+  for i=1,enemy2amt do
+	
   local enemy={
   sp=16,
    -- this or something similar so they don't end up in the same spot
-  x=flr(rnd(1024/i))*i+128*2,
-  y=flr(rnd(84))+12,
+  x=flr(rnd(512)+256),
+  y=flr(rnd(68))+24,
+	-- y=(j*16),
   w=8,
   h=8,
   dx=-(rnd(1.5)+.25),
   dy=0,
   dir=0
   }
-  
+	
  enemy2_list[i]=enemy
  end
 	
 	particle={
 		x=0,
 		y=0,
-		sp=17
+		sp=0,
+		age=0
+	}
+	enemy_particle={
+		x=0,
+		y=0,
+		sp=21
 	}
 	
 	level=1
-	gravity=0.3
+	gravity=0.258
 	friction=0.85
 	
 	--bg candle--
 	
 	--simple camera
 	cam_x=0
+	cam_x_offset=32
 	
 	--map limits=8 screens
 	map_start=0
@@ -120,15 +134,6 @@ function _init()
 	--text
 	wind={}
 	
-	--start screen
-	--[[
-	addwind(24,24,90,64,
-	{"press ❎ to start!",
-	"❎=jump! ⬅️=slow!",
-	"❎ in air=fly!",
-	"good luck, runner!",
-	"- wb games 2022 -"})
-	]]--
 	--score
 	addwind(cam_x+6,10,10,10,
 	{"score:"..flr(player.score)})
@@ -143,9 +148,9 @@ function _init()
 	--test = true
 	-----------------------
 
-	for x=0,2 do
+	for x=0,6 do
 	map_gen()
-	rescroll=false
+	--rescroll=false
 	end
 end
 

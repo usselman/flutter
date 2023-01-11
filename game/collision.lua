@@ -5,30 +5,31 @@ function collide_map(obj,aim,flag)
 	--aim = right, up, left, down
 	
 	local x=obj.x	local y=obj.y
-	local w=obj.w local h=obj.h
+	local w=obj.w 	local h=obj.h
+
 	
 	local x1=0 local y1=0
 	local x2=0 local y2=0
 	 
 	if aim=="left" then
-		x1=x-2			y1=y-1
-		x2=x+1					y2=y+h
+		x1=x			y1=(y-1)+1
+		x2=x+1					y2=(y+h)-1
 	
 	elseif aim=="right" then
 		x1=x+w			y1=y+1
-		x2=x+w-obj.dx+1					y2=y+h-1
+		x2=x+w-obj.dx+1					y2=y+(h/2)-1
 	
 			
 	elseif aim=="up" then
-		x1=x			y1=y-2
-		x2=x+w-2	y2=y		
+		x1=x+1			y1=y-2
+		x2=x+w-1	y2=y		
 	
 	elseif aim=="down" then	
-		x1=x+3					y1=y+h
-		x2=x+w-4			y2=y+h
+		x1=x+1				y1=y+h
+		x2=x+w-3			y2=y+h
 		
 	elseif aim=="e_down" then	
-		x1=x+3					y1=y+h
+		x1=x+3				y1=y+h
 		x2=x+w-4			y2=y+h+2	
 	end
 	
