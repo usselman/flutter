@@ -10,15 +10,19 @@ function enemy_update(e)
 
 	--spawntrail(enemy.x+enemy.w +rnd(enemy.w),enemy.y)
 	
-	if enemy.y>84 then
-			enemy.dy=-1
+	if enemy.y>94 then
+			enemy.dy=-1.5
 	end		
-	if enemy.y<16 then 
-			enemy.dy=.5	
+	if enemy.y<24 then 
+			enemy.dy=1	
 	end
-	if enemy.x>map_end then
-		enemy.x=map_start
+	if enemy.x<player.x-80 and player.x<map_end-128-cam_x_offset then
+		enemy.x=player.x+cam_x_offset+80
 	end
+	if rescroll then 
+		enemy.x=player.x+cam_x_offset+80
+	end
+
 	if enemy_collide(player,"right",3,enemy) then
 			player.dead=true
 	end
@@ -42,14 +46,14 @@ function enemy2_update(e)
 	--enemy reloader--
 	if (e.x<player.x-80 and player.x<map_end-128-cam_x_offset) then 
 		e.x=player.x+96
-		e.y=flr(rnd(68))+32
-		e.dx=-(rnd(1.5)+.25)
+		e.y=flr(rnd(64))+32
+		e.dx=-(rnd(1)+.25)
 	end
 
 	if rescroll then 
 		e.x=player.x+64+cam_x_offset+rnd(256)
-		e.dx=-(rnd(1.5)+.25)
-		e.y=flr(rnd(68))+32
+		e.dx=-(rnd(1)+.25)
+		e.y=flr(rnd(64))+32
 	end
 
 	-- if e.x<map_start then
@@ -59,7 +63,7 @@ function enemy2_update(e)
 	
 	if	enemy_collide(player,"right",3,enemy) then
  		player.dead=true
- end
+ 	end
 	
 end
 

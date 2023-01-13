@@ -2,12 +2,13 @@
 
 function _init()
 	
-	--map blocks
-	c={}
-
 	--menu
 	scene="menu"
 	state=0
+
+	--simple camera
+	cam_x=0
+	cam_x_offset=32
 	
 	--stars
 	map1y=0
@@ -43,18 +44,19 @@ function _init()
 		spd=0,
 	}
 	
+  enemyamt=4	
   --up down ghost
   enemy_list = {}
-  for i=1,3 do
+  for i=1,enemyamt/2 do
   local enemy={
   sp=33,
    -- this or something similar so they don't end up in the same spot
   --x=map_end,
-  x=i * 180 - flr(150*rnd())-124,
-  y=flr(rnd(64))+10,
+  x=player.x+cam_x_offset+80,
+  y=80/i,
   w=8,
   h=8,
-  dx=1,
+  dx=0.5,
   dy=1,
   dir=.02
   }
@@ -64,8 +66,7 @@ function _init()
  
  --side ghost
  enemy2_list = {}
-	enemy2amt=4
-  for i=1,enemy2amt do
+  for i=1,enemyamt do
 	
   local enemy={
   sp=16,
@@ -75,7 +76,7 @@ function _init()
 	-- y=(j*16),
   w=8,
   h=8,
-  dx=-(rnd(1.5)+.25),
+  dx=-(rnd(1)+.25),
   dy=0,
   dir=0
   }
@@ -101,9 +102,6 @@ function _init()
 	
 	--bg candle--
 	
-	--simple camera
-	cam_x=0
-	cam_x_offset=32
 	
 	--map limits=8 screens
 	map_start=0

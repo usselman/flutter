@@ -30,7 +30,7 @@ function rndtiles(mw,mh)
 end
 
 function place_tile(t)
-	local cand={}
+	local cand,c={}
 	--   for _y=3,10,3 do
 	-- 	for _x=1,127 do
 	-- 	--clear objects
@@ -38,11 +38,12 @@ function place_tile(t)
 	-- 	end
 	-- end
 
-	for _x=48+cam_x_offset,111,2 do
+	-- for _x=16+(cam_x_offset/8),16,2 do
+		for _x=64,96,16 do
 			for _y=4,11,3 do
 			if doestilefit(t,_x,_y) then
 				
-				add(cand,{x=rnd(_x),y=_y})
+				add(cand,{x=rnd(_x)+16,y=_y})
 				-- if rescroll then
 				-- 	for i=1,#cand do
 				-- 		del(cand,i)
@@ -78,7 +79,7 @@ function place_tile(t)
 				end
 				if _x%5==1 then
 					tile=114
-					grass=101
+					grass=116
 					--rock=89
 					--pile=121
 				end	
@@ -95,20 +96,14 @@ function place_tile(t)
 					--diamond=105
 				end
 				if _x%2==0 then
-					grass=116
+					grass=101
 				end
 				
-				mset(_x+t.x+10,_y+t.y,tile)
-				--mset(t.x+1+10,t.y-1,pot)x
-				mset(t.x+1+12,t.y-1,diamond)
-				--mset(t.x+3+10,t.y-1,diamond)
-				if player.jumping then
-					--mset(t.x+1+10,t.y-1, 105)
-				end
-				--mset(t.x+2+13,t.y-1,rock)
-				mset(t.x+2+10,t.y-1,grass)
-				--mset(t.x+3+10,t.y-1,trap)
-				--mset(t.x+2+10,t.y-1,pile)
+			-- mset(_x+t.x+10,_y+t.y,tile)
+			mset(_x+t.x,_y+t.y,tile)
+			mset(t.x+rnd(t.w),t.y-1,grass)
+			mset(t.x+3,t.y-1,diamond)
+				
 		end
 	end	
 	return c
@@ -131,8 +126,8 @@ end
 
 function doestilefit(t,x,y)
 
-		if x<64 then
-			return false	
+	if x>100 or x<48 then
+		return false	
 	end	
 	return true
 end

@@ -29,13 +29,14 @@ function player_update()
 	
 	--controls
 	
-	if btn(⬅️) then
+	if btn(⬅️) and player.dead==false then
 		player.dx+=-1
 		player.score-=player.spd/2
+
 	end
 	
 	--jump
-	if btnp(❎)
+	if btnp(❎) and player.dead==false
 	and player.landed then
 		player.dy-=player.boost
 		player.landed=false
@@ -45,38 +46,35 @@ function player_update()
 	end	
 	
 	--duck
-	if btn(⬇️) then
+	if btn(⬇️) and player.dead==false then
 		player.ducking=true
+		spawndust(player.x,player.y)
 		--player.y = 2
 	else 
 		player.ducking=false	
 	end	
 	
-	--check collision up and down
 	
 	--floor
 	if player.dy>0 then
 		player.falling=true
 		player.landed=false
 		player.jumping=false
-		if player.falling then
-			if btnp(❎) then
-				--player.dy-=player.boost/1.5
-				--flutterjump
-				player.dy-=player.boost/0.5
-				player.landed=false
-				player.jumping=true
-				sfx(5)
+
+		if btnp(❎) and player.dead==false and player.falling then
+			--flutterjump
+			player.dy-=player.boost/0.5
+			player.landed=false
+			player.jumping=true
+			sfx(5)
 				
-			end
 		end
+		
+		
 		
 		player.dy=limit_speed(player.dy,player.max_dy)
 		
 		if collide_map(player,"down",0) then
-			if player.ducking then
-				--player.h
-			end
 			player.landed=true
 			player.falling=false
 			player.dy=0
@@ -94,6 +92,7 @@ function player_update()
 		if collide_map(player,"up",1) then
 			player.dy+=3
 			player.dx=0
+			spawndust(player.x,player.y)
 			sfx(7, 2)
 			--player.score-=10
 			
@@ -164,16 +163,9 @@ function player_update()
 		player.dead=true	
 	end
 
-	--scrolling!!!!--
+	--rescrolling--
 	if player.x>map_end-player.w then
-
 		rescroll=true
-
-		--palette switch
-		-- for i=0,16 do
-		-- 	pal(i,rnd(16))
-		-- end
-
 		player.x=player.x-map_end
 		
 	else
@@ -187,13 +179,12 @@ function player_animate()
 			player.sp=2
 			spawntrail(player.x,player.y)
 			
-			--pal(6,7)
-			
 		elseif player.ducking then
 			player.sp=4	
 			fset(65,0,false)
 			fset(81,0,false)
 			fset(114,0,false)
+			player.dy+=1
 			player.falling=true
 		elseif player.landed then
 			

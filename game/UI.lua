@@ -2,10 +2,10 @@
 
 function addwind(_x,_y,_w,_h,_txt)
 	local w={x=_x,
-										y=_y,
-										w=_w,
-										h=_h,
-										txt=_txt}
+			y=_y,
+			w=_w,
+			h=_h,
+			txt=_txt}
 	add(wind,w)
 	return w
 end
@@ -40,6 +40,7 @@ function showmsg(txt,dur)
 	local y=player.y
 	local wid=#txt*4+7
 	local w=addwind(x,y-10,wid,13,{txt})
+	drawind()
 	w.dur=dur
 	
 end
