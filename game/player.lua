@@ -6,6 +6,11 @@ function player_update()
 		player.score=0
 	end
 
+	if player.dead then
+		player.dx=0
+		player.acc=0
+	end
+
 	if player.acc>0 and
 	player.dead==false
 	 then
@@ -25,7 +30,9 @@ function player_update()
 	player.dx*=friction
 	
 	--runner--
-	player.dx=player.max_dx/2
+	if player.dead==false then
+		player.dx=player.max_dx/2
+	end
 	
 	--controls
 	
@@ -130,6 +137,13 @@ function player_update()
 				player.dy+=.5
 				sfx(7, 2)
 			end
+			-------test------
+			collide_r="yes"
+			else collide_r="no"
+			-----------------
+		end
+		if collide_map(player,"right",1) and player.dead then
+			player.dx=0
 			-------test------
 			collide_r="yes"
 			else collide_r="no"

@@ -245,9 +245,9 @@ function draw_game()
 	if player.dead then
 		spr(14, player.x,player.y)
 		--cls(0)
-		for i=0,15 do
-			pal(i, 5)
-		end
+		-- for i=0,15 do
+		-- 	pal(i, 5)
+		-- end
 		if player.dead and trig==false then
 			--death sfx--
 			sfx(3,1)
@@ -268,26 +268,29 @@ function draw_game()
 		map(0,0,-map_end,0,8,16)
 
 		---bg----
-	for map_x=-map_end,map_end,128 do
-		for bg_x=-map_end, map_end,128 do
-		--candles--------------------
-		map(0,16,map_x,0,16,16)
-	
-		--draw stars----------------
-		map(32,16,bg_x,map1y,16,16)
-		map(48,16,bg_x,map2y,16,16)
-		map(32,16,bg_x+127,map1y-map_height,16,16)
-		map(48,16,bg_x+127,map2y-map_height,16,16)
-	
-		--pillars--
-		--map(16,16,map_x-player.x/2,0,16,16)
-		end
-	end	
+		for map_x=-map_end,map_end,128 do
+			for bg_x=-map_end, map_end,128 do
+			--candles--------------------
+			map(0,16,map_x,0,16,16)
+		
+			--draw stars----------------
+			map(32,16,bg_x,map1y,16,16)
+			map(48,16,bg_x,map2y,16,16)
+			map(32,16,bg_x+127,map1y-map_height,16,16)
+			map(48,16,bg_x+127,map2y-map_height,16,16)
+		
+			--pillars--
+			--map(16,16,map_x-player.x/2,0,16,16)
+			end
+		end	
 		
 		player_update()
+		
+		player.dx=0
 		state=2
-		print("you died! press up",player.x+player.dx,39)
-		print("score: "..flr(player.score),player.x+16+player.dx,49,7)
+		deathtrail(player.x+player.w/4,player.y-map1y)
+		print("you died! press up",player.x+player.dx,42)
+		print("score: "..flr(player.score),player.x+16+player.dx,52,7)
 		--mset(player.x+10,player.y-10,18)
 		--mset(29+cam_x,29,25)
 		--change scene--

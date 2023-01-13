@@ -59,8 +59,18 @@ function spawndust(_x,_y)
         local _dx=sin(_angle)*0.8
         local _dy=cos(angle)*0.8
         add_particles(_x-_dx+6,_y-_dy+4,2,rnd(3),{6,5,1})
+    end   
+end
+
+function deathtrail(_x,_y)
+    if rnd()>0.1 then
+        local _angle = rnd()
+        local _dx = sin(_angle)*(player.w/8)*0.1
+        local _dy = cos(_angle)*(player.h/8)*0.1
+
+        add_particles(_x+_dx+player.w/4,_y+_dy+6,3,5+rnd(10),{7,6,5,0})
+
     end
-    
 end
 
 function update_particles()
@@ -110,6 +120,13 @@ function draw_particles()
             circfill(_p.x,_p.y+player.h,rnd(1),_p.col)
             --spr(26,_p.x,_p.y, 1,1)
         
+        end
+        if _p.t==3 then
+            --spr(41,_p.x-player.w/2,_p.y,1,1)
+            pset(_p.x,_p.y,_p.col)
+            pset(_p.x+player.w/8,_p.y+rnd(player.h/4),_p.col) 
+            pset(_p.x-player.w/8,_p.y-rnd(player.h/4),_p.col)
+            
         end
     end
 
