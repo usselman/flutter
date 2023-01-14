@@ -30,6 +30,9 @@ end
 
 --menu functions--
 function update_menu()
+	for i=0,15 do
+		pal(6,rnd(i))
+	end
 	if btnp(❎) then
 		scene="game"
 	end
@@ -37,22 +40,11 @@ end
 
 function draw_menu()
 	cls()
-		---bg----
-	for map_x=0,map_end,127 do
-		for bg_x=0, map_end,127 do
-	
-		--draw stars----------------
-		map(32,16,bg_x,map1y,16,16)
-		map(48,16,bg_x,map2y,16,16)
-		map(32,16,bg_x+127,map1y-map_height,16,16)
-		map(48,16,bg_x+127,map2y-map_height,16,16)
-
-
-		end
-	end
-	
+	--title text--
 	map(0,0,map_x-map_end,0,map_end,16)	
 
+	--pillars
+	map(16,16,-10,0,16,16)
 	--stars--------
 	map1y+=map1_spd
 	map2y+=map2_spd
@@ -62,23 +54,22 @@ function draw_menu()
 		map2y=0
 	end	
 	---------------
-	rectfill(6,6,122,122,7)
-	rectfill(8,8,120,120,6)
+
+	map(0,32,0,0,16,16)
 	
-	rect(10,10,118,118,6)
-	--circ(64,64,56,1)
-		wind={}
-		
-	--start screen
-	print("✽flutter✽",44,18,rnd(16))
-	addwind(28,28,90,80,
+	wind={}
+	
+	addwind(24,60,90,80,
 	{"press x to start!",
 	 "x:jump! ⬅️:slow! ",
 	 "   down=duck!    ",
 	 "  x in air:fly!  ",
-	"good luck flutter!",
-	 "       v 0.5     "})
+	"good luck flutter!"
+	})
 	drawind()
+
+
+
 end
 
 function update_game()
@@ -252,6 +243,7 @@ function draw_game()
 			--death sfx--
 			sfx(3,1)
 			sfx(6)
+			map1y=0
 	
 			music(-1)
 			trig=true
@@ -288,8 +280,10 @@ function draw_game()
 		
 		player.dx=0
 		state=2
+		
 		deathtrail(player.x+player.w/4,player.y-map1y)
-		print("you died! press up",player.x+player.dx,42)
+		
+		print("you died! press up",player.x+player.dx,42,7)
 		print("score: "..flr(player.score),player.x+16+player.dx,52,7)
 		--mset(player.x+10,player.y-10,18)
 		--mset(29+cam_x,29,25)

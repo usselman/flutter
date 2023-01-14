@@ -97,8 +97,9 @@ function player_update()
 		player.jumping=true
 		
 		if collide_map(player,"up",1) then
-			player.dy+=3
+			player.dy=1
 			player.dx=0
+			player.y+=6
 			spawndust(player.x,player.y)
 			sfx(7, 2)
 			--player.score-=10
@@ -131,11 +132,11 @@ function player_update()
 	--right
 		if collide_map(player,"right",1) then
 			player.dx=0
-			if player.dx==0 then
-				--player.x+=-.8
-				player.dx+=-4
+			player.dx+=-6
+				--player.dx+=-
 				player.dy+=.5
-				sfx(7, 2)
+			if rnd()>0.5 then
+				sfx(7, 1)
 			end
 			-------test------
 			collide_r="yes"

@@ -21,7 +21,7 @@ function drawind()
 		clip(wx,wy,ww-8,wh-8)
 		for i=1,#w.txt do
 			local txt=w.txt[i]
-			print(txt,wx,wy,1)
+			print(txt,wx,wy,7)
 			wy+=12
 		end
 		
