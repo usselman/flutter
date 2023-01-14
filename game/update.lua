@@ -40,31 +40,22 @@ end
 
 function draw_menu()
 	cls()
+
 	--title text--
-	map(0,0,map_x-map_end,0,map_end,16)	
+	map(0,32,4,0,16,16)
+	--pal(13,8)
+	--map(0,32,5,1,16,16)
 
-	--pillars
-	map(16,16,-10,0,16,16)
-	--stars--------
-	map1y+=map1_spd
-	map2y+=map2_spd
-	if map1y>map_height then
-		map1y=0
-	elseif map2y>map_height then
-		map2y=0
-	end	
-	---------------
-
-	map(0,32,0,0,16,16)
+	--bg--
+	--map(32,0,0,0,16,16)
 	
 	wind={}
 	
-	addwind(24,60,90,80,
-	{"press x to start!",
-	 "x:jump! ⬅️:slow! ",
-	 "   down=duck!    ",
+	addwind(26,60,90,80,
+	{"x:jump! ⬅️:slow! ",
 	 "  x in air:fly!  ",
-	"good luck flutter!"
+	 "  down = duck!   ",
+	 "press x to start!"
 	})
 	drawind()
 
@@ -251,13 +242,9 @@ function draw_game()
 			trig=true
 		end
 		player.start=false
-
+		
 		--star bg
 		map(32,16,map_x,0,16,16)
-
-		map(0,0,0,0,map_x+map_end,16)
-		map(0,0,map_end,0,8,16)
-		map(0,0,-map_end,0,8,16)
 
 		---bg----
 		for map_x=-map_end,map_end,128 do
@@ -275,6 +262,10 @@ function draw_game()
 			--map(16,16,map_x-player.x/2,0,16,16)
 			end
 		end	
+
+		map(0,0,0,0,map_x+map_end,16)
+		map(0,0,map_end,0,8,16)
+		map(0,0,-map_end,0,8,16)
 		
 		player_update()
 		
@@ -283,13 +274,13 @@ function draw_game()
 		
 		deathtrail(player.x+player.w/4,player.y-map1y)
 		
-		print("you died! press up",player.x+player.dx,42,7)
-		print("score: "..flr(player.score),player.x+16+player.dx,52,7)
+		print("you died! press x",player.x+player.dx,46,7)
+		print("score: "..flr(player.score),player.x+16+player.dx,58,7)
 		--mset(player.x+10,player.y-10,18)
 		--mset(29+cam_x,29,25)
 		--change scene--
 		--scene="dead"
-		if btn(⬆️) then
+		if btnp(❎) then
 			player.start=false
 			--player.x=59
 			--player.y=59

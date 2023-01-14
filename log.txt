@@ -13,7 +13,7 @@
 [000000]     08 blit_method 0  // 0 auto  1 software (slower but sometimes more reliable)  2 hardware (can do filtered scaling) 
 [000000]     09 foreground_sleep_ms 2 // number of milliseconds to sleep each frame. Try 10 to conserve battery power
 [000000]     10 background_sleep_ms 10 // number of milliseconds to sleep each frame when running in the background
-[000000]     11 sessions 72 // number of times program has been run
+[000000]     11 sessions 74 // number of times program has been run
 [000000]     12 rmb_key 0 // 0 for none  226 for LALT
 [000000]     13 desktop_path 
 [000000]     14 read_controllers_in_background 0
@@ -48,63 +48,84 @@
 [000000]     43 gfx_grid_lines 0
 [000000]   
 [000000]   codo_system_init
-[000315]   Compiled against SDL version: 2.0.12
-[000315]   Linked against SDL version:   2.0.12
-[000315]   Current video driver: cocoa
-[000316]   codo_reset_timer
-[000317]   codo_gui_init
-[000317]   codo_keys_init
-[000317]   codo_text_init
-[000317]   codo_video_init
-[000317]   codo_mouse_init
-[000317]   codo_joystick_init
-[000317]   Reading controller mappings: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/sdl_controllers.txt
-[000317]   searching for joysticks
-[000317]     found 0 joysticks
-[000317]   ok
-[000317] ok
-[000328] codo_load_pod: /Applications/PICO-8.app/Contents/MacOS/pico8.dat ok 
-[000330] codo_set_screen 128 128 8 100
-[000330]  window size: 640 540
-[000354]   setting filter to nearest (screen_mode 0  back page width: 128)
+[000331]   Compiled against SDL version: 2.0.12
+[000331]   Linked against SDL version:   2.0.12
+[000331]   Current video driver: cocoa
+[000331]   codo_reset_timer
+[000331]   codo_gui_init
+[000331]   codo_keys_init
+[000331]   codo_text_init
+[000331]   codo_video_init
+[000331]   codo_mouse_init
+[000331]   codo_joystick_init
+[000331]   Reading controller mappings: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/sdl_controllers.txt
+[000332]   searching for joysticks
+[000332]     found 0 joysticks
+[000332]   ok
+[000332] ok
+[000342] codo_load_pod: /Applications/PICO-8.app/Contents/MacOS/pico8.dat ok 
+[000344] codo_set_screen 128 128 8 100
+[000344]  window size: 640 540
+[000376]   setting filter to nearest (screen_mode 0  back page width: 128)
   renderer metal:
    flags: 0x0000000E ( |  | )
    texture formats (6): ARGB8888, ABGR8888, YV12, IYUV, 0x3231564e, 0x3132564e
    max texture size: 16384x16384
-[000356]  desktop size: 1440 900
-[000356] ok
-[000365] codo_sound_init mix_buffer_size: 1024
-[000365] codo_sound_init
-[000365] SDL_INIT_AUDIO ok
-[000426] SDL_OpenAudio ok
-[000426]  freq:22050
+[000378]  desktop size: 1440 900
+[000379] ok
+[000385] codo_sound_init mix_buffer_size: 1024
+[000386] codo_sound_init
+[000386] SDL_INIT_AUDIO ok
+[000449] SDL_OpenAudio ok
+[000449]  freq:22050
  channels:1
-[000426] Built-in audio drivers: 0 coreaudio 1 disk 2 dummy
-[000427] Current audio driver: coreaudio
-[000427] splore_init
-[000427] could not load favourites file: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/favourites.txt
-[002500] loading /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8
-[004188] run_cart current_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_cart_lid: 
-[013331] codo_save_png result: 0  file: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/carts/flutter1-14-23.p8.png
-[021567] exporting html: flutter.js 0 1
-[021574] 1. export html
-[021575] 2. writing /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/carts/flutter.js
-[025707] exporting html: flutter.html 1 1
-[025710] 1. export html
-[025710] 1.a opening output: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/carts/flutter.html
-[025711] 1.b replacements
-[025711]  ok_
-[025729] codo_save_png result: 0  file: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/_label.png
-[025729]  ok_
-[025730] 2. writing /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/carts/flutter.js
-[027816] window closed (14)
-[027816] codo_exit
-[027816]   cmusic_stop
-[027816]   codo_main_exit
-[027818]   codo_config_save
-[027819]   codo_sound_exit
-[027819]   codo_video_exit
-[027824]   codo_joystick_exit
-[027825]   codo_system_exit
-[027825]   codo_items_created: 1371
-[027825] ok
+[000449] Built-in audio drivers: 0 coreaudio 1 disk 2 dummy
+[000449] Current audio driver: coreaudio
+[000449] splore_init
+[000449] could not load favourites file: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/favourites.txt
+[002536] loading /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8
+[004223] run_cart current_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_cart_lid: 
+[008861] run_cart current_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_cart_lid: 
+[019976] run_cart current_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_cart_lid: 
+[041141] run_cart current_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_cart_lid: 
+[059161] run_cart current_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_cart_lid: 
+[071179] run_cart current_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_cart_lid: 
+[085578] run_cart current_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_cart_lid: 
+[105938] run_cart current_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_cart_lid: 
+[121393] run_cart current_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_cart_lid: 
+[158471] run_cart current_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_cart_lid: 
+[160773] run_cart current_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_cart_lid: 
+[162209] run_cart current_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_cart_lid: 
+[164610] run_cart current_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_cart_lid: 
+[166283] run_cart current_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_cart_lid: 
+[213570] run_cart current_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_cart_lid: 
+[234293] run_cart current_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_cart_lid: 
+[240637] run_cart current_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_cart_lid: 
+[246812] run_cart current_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_cart_lid: 
+[249715] run_cart current_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_cart_lid: 
+[262968] run_cart current_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_cart_lid: 
+[270581] run_cart current_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_cart_lid: 
+[304132] run_cart current_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_cart_lid: 
+[326599] run_cart current_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_cart_lid: 
+[360178] run_cart current_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_cart_lid: 
+[374455] run_cart current_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_cart_lid: 
+[403495] codo_save_png result: 0  file: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/carts/flutter1-14-23.p8.png
+[409359] exporting html: flutter.html 1 1
+[409368] 1. export html
+[409368] 1.a opening output: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/carts/flutter.html
+[409368] 1.b replacements
+[409369]  ok_
+[409385] codo_save_png result: 0  file: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/_label.png
+[409385]  ok_
+[409385] 2. writing /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/carts/flutter.js
+[411158] window closed (14)
+[411158] codo_exit
+[411158]   cmusic_stop
+[411158]   codo_main_exit
+[411159]   codo_config_save
+[411160]   codo_sound_exit
+[411160]   codo_video_exit
+[411175]   codo_joystick_exit
+[411175]   codo_system_exit
+[411176]   codo_items_created: 1842
+[411176] ok
