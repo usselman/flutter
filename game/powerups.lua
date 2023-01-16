@@ -18,14 +18,15 @@ function diamonds()
 
 			if mget(player.x/8+1,player.y/8)==104 then
 				mset(player.x/8+1,player.y/8,0)
-			  elseif mget(player.x/8+1,player.y/8+1)==104 then
+			elseif mget(player.x/8+1,player.y/8+1)==104 then
 				mset(player.x/8+1,player.y/8+1,0)
-			  elseif mget(player.x/8+1,player.y/8-1)==104 then
+			elseif mget(player.x/8+1,player.y/8-1)==104 then
 				mset(player.x/8+1,player.y/8-1,0)
-			  elseif mget(player.x/8,player.y/8)==104 then
+			elseif mget(player.x/8,player.y/8)==104 then
 				mset(player.x/8,player.y/8,0)
-			  end
-
+			elseif mget(player.x/8-1,player.y/8)==104 then
+				mset(player.x/8-1,player.y/8,0)	
+			end
 			sfx(4)
 		player.score+=100
 

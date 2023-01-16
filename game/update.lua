@@ -32,6 +32,8 @@ end
 function update_menu()
 	for i=0,15 do
 		pal(6,rnd(i))
+		--pal(10,i)
+		pal(7,6)
 	end
 	if btnp(❎) then
 		scene="game"
@@ -40,26 +42,22 @@ end
 
 function draw_menu()
 	cls()
-
 	--title text--
 	map(0,32,4,0,16,16)
-	--pal(13,8)
-	--map(0,32,5,1,16,16)
 
 	--bg--
 	--map(32,0,0,0,16,16)
 	
 	wind={}
 	
-	addwind(26,60,90,80,
-	{"x:jump! ⬅️:slow! ",
+	addwind(26,62,90,80,
+	{"     x:jump!     ",
+	 "    left:slow!   ",
 	 "  x in air:fly!  ",
 	 "  down = duck!   ",
 	 "press x to start!"
 	})
 	drawind()
-
-
 
 end
 
@@ -158,7 +156,6 @@ function draw_game()
 
 	--player--
 	spr(player.sp,player.x,player.y,1,1,player.flp)
-
 	
 	if player.start then
 	--diamonds
@@ -173,21 +170,6 @@ function draw_game()
 	
 		end
 	end
-
-	-- local enemyamt = 0
-
-	-- if player.score>50 then
-	-- 	enemyamt=1
-	-- end
-	-- if player.score>200 then
-	-- 	enemyamt=2
-	-- end
-	-- if player.score>600 then
-	-- 	enemyamt=3
-	-- end
-	-- if player.score>1200 then
-	-- 	enemyamt=4
-	-- end
 
 	for i=1,#enemy2_list do
 		enemy2_update(enemy2_list[i])
@@ -225,11 +207,12 @@ function draw_game()
 
 	--reset--
 	if player.dead then
+		--cls()
+		update_particles()
+		draw_particles()
+		
 		spr(14, player.x,player.y)
-		--cls(0)
-		-- for i=0,15 do
-		-- 	pal(i, 5)
-		-- end
+		
 		if player.dead and trig==false then
 			--death sfx--
 			sfx(3,1)
@@ -266,27 +249,25 @@ function draw_game()
 		map(0,0,0,0,map_x+map_end,16)
 		map(0,0,map_end,0,8,16)
 		map(0,0,-map_end,0,8,16)
-		
+
 		player_update()
-		
-		player.dx=0
-		state=2
 		
 		deathtrail(player.x+player.w/4,player.y-map1y)
 		
-		print("you died! press x",player.x+player.dx,46,7)
-		print("score: "..flr(player.score),player.x+16+player.dx,58,7)
-		--mset(player.x+10,player.y-10,18)
-		--mset(29+cam_x,29,25)
+		player.dx=0
+		state=2
+
+		--rectfill(player.x-2, 44, player.x+68, 66, 0)
+		--rect(player.x-4,42,player.x+70,68,7)
+		print("you died! press up",player.x+player.dx,44,7)
+		print("score: "..flr(player.score),player.x+16+player.dx,68,7)
+		
 		--change scene--
 		--scene="dead"
-		if btnp(❎) then
+		if btnp(⬆️) then
 			player.start=false
-			--player.x=59
-			--player.y=59
 			scene="menu"
 			player.dead=false
-			--_update()
 			run()
 		end
 	end

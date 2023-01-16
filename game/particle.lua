@@ -33,10 +33,10 @@ end
 
 function spawntrail(_x,_y)
     --1/2 chance
-    if rnd()>0.4 then
+    if rnd()>0.0 then
         local _angle = rnd()
-        local _dx = sin(_angle)*(player.w/8)*0.1
-        local _dy = cos(_angle)*(player.h/8)*0.1
+        local _dx = sin(_angle)*(player.w/8)
+        local _dy = cos(_angle)*(player.h/8)
 
         add_particles(_x+_dx+player.w/4,_y+_dy+6,0,3+rnd(3),{rnd(15),6,5,0})
 
@@ -111,10 +111,10 @@ function draw_particles()
         --pixel particle
         if _p.t==0 then
            pset(_p.x,_p.y,_p.col)
-           pset(_p.x,_p.y+rnd(player.h/4),_p.col)
-           --pset(_p.x,_p.y+rnd(player.h/2),5)  
-           pset(_p.x,_p.y-rnd(player.h/4),_p.col)
-           --pset(_p.x,_p.y-rnd(player.h/2),7)
+           pset(_p.x,_p.y+rnd(player.h/8),_p.col) 
+           pset(_p.x,_p.y-rnd(player.h/8),_p.col)
+          
+           --circfill(_p.x,_p.y,2,_p.col)
         end
         if _p.t==1 then
             --enemy particle
@@ -128,10 +128,11 @@ function draw_particles()
         end
         --death trail--
         if _p.t==3 then
-            --spr(41,_p.x-player.w/2,_p.y,1,1)
-            pset(_p.x,_p.y,_p.col)
-            pset(_p.x+player.w/8,_p.y+rnd(player.h/4),_p.col) 
-            pset(_p.x-player.w/8,_p.y-rnd(player.h/4),_p.col)
+            
+            --pset(_p.x,_p.y,_p.col)
+            --pset(_p.x+player.w/8,_p.y+rnd(player.h/4),_p.col) 
+            --pset(_p.x-player.w/8,_p.y-rnd(player.h/4),_p.col)
+            circfill(_p.x,_p.y,2,_p.col)
         end
         --powerup--
         if _p.t==4 then 

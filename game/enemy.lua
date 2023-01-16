@@ -10,10 +10,10 @@ function enemy_update(e)
 
 	--spawntrail(enemy.x+enemy.w +rnd(enemy.w),enemy.y)
 	
-	if enemy.y>94 then
-			enemy.dy=-1.5
+	if enemy.y>96 then
+			enemy.dy=-1.2
 	end		
-	if enemy.y<24 then 
+	if enemy.y<16 then 
 			enemy.dy=1	
 	end
 	if enemy.x<player.x-80 and player.x<map_end-128-cam_x_offset then
@@ -35,14 +35,6 @@ function enemy2_update(e)
 	e.x+=e.dx
 	spawncircle(e.x,e.y)
 
-	-- if player.score>100 then
-	-- 	enemy2amt=10
-	-- end
-
-	--particle
-	--spawntrail(enemy.x+enemy.w+rnd(enemy.w*2),enemy.y)
-
-	--enemy.dx=-1	
 	--enemy reloader--
 	if (e.x<player.x-80 and player.x<map_end-128-cam_x_offset) then 
 		e.x=player.x+96
@@ -56,10 +48,6 @@ function enemy2_update(e)
 		e.y=flr(rnd(64))+32
 	end
 
-	-- if e.x<map_start then
-	-- 	e.x=map_end
-	-- 	e.y=flr(rnd(80))+16
-	-- end
 	
 	if	enemy_collide(player,"right",3,enemy) then
  		player.dead=true

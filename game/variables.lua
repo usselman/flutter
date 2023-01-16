@@ -57,8 +57,8 @@ function _init()
   w=8,
   h=8,
   dx=0.5,
-  dy=1,
-  dir=.02
+  dy=-0.5,
+  dir=-.002
   }
   
  enemy_list[i]=enemy

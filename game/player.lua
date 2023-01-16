@@ -2,7 +2,7 @@
 
 function player_update()
 
-	if player.score<=0 then
+	if player.score<0 then
 		player.score=0
 	end
 
@@ -51,6 +51,16 @@ function player_update()
 		--jump!--
 		sfx(0)		
 	end	
+
+	if btnp(❎) and player.falling and player.dead==false then
+
+		--flutterjump
+		player.dy-=player.boost/0.5
+		player.landed=false
+		--player.jumping=true
+		sfx(5)
+		player.dy=limit_speed(player.dy,player.max_dy)	
+	end
 	
 	--duck
 	if btn(⬇️) and player.dead==false then
@@ -68,16 +78,8 @@ function player_update()
 		player.landed=false
 		player.jumping=false
 
-		if btnp(❎) and player.dead==false and player.falling then
-			--flutterjump
-			player.dy-=player.boost/0.5
-			player.landed=false
-			player.jumping=true
-			sfx(5)
-				
-		end
-		
-		
+		--and player.falling
+
 		
 		player.dy=limit_speed(player.dy,player.max_dy)
 		
@@ -98,8 +100,11 @@ function player_update()
 		
 		if collide_map(player,"up",1) then
 			player.dy=1
-			player.dx=0
+			--player.dx=0
 			player.y+=6
+			if player.score>10 then
+				player.score-=10
+			end
 			spawndust(player.x,player.y)
 			sfx(7, 2)
 			--player.score-=10
@@ -118,7 +123,7 @@ function player_update()
 	player.dx=limit_speed(player.dx,player.max_dx)
 	--left
 		if collide_map(player,"left",1) then
-			player.dx=0
+			--player.dx=0
 		
 			-------test------
 			collide_l="yes"
