@@ -30,7 +30,7 @@ foreground_sleep_ms 2 // number of milliseconds to sleep each frame. Try 10 to c
 
 background_sleep_ms 10 // number of milliseconds to sleep each frame when running in the background
 
-sessions 84 // number of times program has been run
+sessions 86 // number of times program has been run
 
 // (scancode) hold this key down and left-click to simulate right-click
 rmb_key 0 // 0 for none  226 for LALT
@@ -45,7 +45,7 @@ read_controllers_in_background 0
 
 // :: Audio Settings (use "volume" for PICO-8)
 
-sound_volume 256 // 0..256
+sound_volume 0 // 0..256
 music_volume 256 // 0..256
 
 
