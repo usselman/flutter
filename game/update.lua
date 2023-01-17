@@ -209,7 +209,6 @@ function draw_game()
 	if player.dead then
 		--cls()
 		update_particles()
-		draw_particles()
 		
 		spr(14, player.x,player.y)
 		
@@ -246,13 +245,15 @@ function draw_game()
 			end
 		end	
 
+		
 		map(0,0,0,0,map_x+map_end,16)
 		map(0,0,map_end,0,8,16)
 		map(0,0,-map_end,0,8,16)
 
 		player_update()
+		draw_particles()
 		
-		deathtrail(player.x+player.w/4,player.y-map1y)
+		deathtrail(player.x+player.w/4,player.y-map1y-player.h)
 		
 		player.dx=0
 		state=2

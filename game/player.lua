@@ -37,7 +37,7 @@ function player_update()
 	--controls
 	
 	if btn(⬅️) and player.dead==false then
-		player.dx+=-1
+		player.dx/=2
 		player.score-=player.spd/2
 
 	end

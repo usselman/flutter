@@ -33,12 +33,12 @@ end
 
 function spawntrail(_x,_y)
     --1/2 chance
-    if rnd()>0.0 then
+    if rnd()>0 then
         local _angle = rnd()
-        local _dx = sin(_angle)*(player.w/8)
-        local _dy = cos(_angle)*(player.h/8)
+        local _dx = sin(_angle)*0.2
+        local _dy = cos(_angle)*(player.h/6)
 
-        add_particles(_x+_dx+player.w/4,_y+_dy+6,0,3+rnd(3),{rnd(15),6,5,0})
+        add_particles(_x+_dx+player.w/4,_y+_dy+6,0,4+rnd(3),{rnd(15),6,5,0})
 
         --add_particles(_x-player.w/4,_y+player.h/2,0,6+rnd(5))
     end
@@ -63,13 +63,12 @@ function spawndust(_x,_y)
 end
 
 function deathtrail(_x,_y)
-    if rnd()>0.2 then
         local _angle = rnd()
-        local _dx = sin(_angle)*(player.w/8)*0.1
-        local _dy = cos(_angle)*(player.h/8)*0.1
+        local _dx = sin(_angle)*0.1
+        local _dy = cos(_angle)*0.1
 
-        add_particles(_x+_dx+player.w/4,_y+_dy+6,3,5+rnd(10),{7,6,5,0})
-    end
+        add_particles(_x+_dx+player.w/4,_y+_dy+6,3,8+rnd(12),{7,6,5,0})
+        --spr(21,_p.x-3,_p.y-player.h/2)
 end
 
 function diamondtext(_x,_y) 
@@ -113,8 +112,6 @@ function draw_particles()
            pset(_p.x,_p.y,_p.col)
            pset(_p.x,_p.y+rnd(player.h/8),_p.col) 
            pset(_p.x,_p.y-rnd(player.h/8),_p.col)
-          
-           --circfill(_p.x,_p.y,2,_p.col)
         end
         if _p.t==1 then
             --enemy particle
@@ -129,10 +126,12 @@ function draw_particles()
         --death trail--
         if _p.t==3 then
             
+            --circfill(_p.x,_p.y,2,_p.col)
+            pset(_p.x,_p.y,_p.col)
+            pset(_p.x+1,_p.y+rnd(player.h/2),_p.col) 
+            pset(_p.x-1,_p.y+rnd(player.h/2),_p.col)
             --pset(_p.x,_p.y,_p.col)
-            --pset(_p.x+player.w/8,_p.y+rnd(player.h/4),_p.col) 
-            --pset(_p.x-player.w/8,_p.y-rnd(player.h/4),_p.col)
-            circfill(_p.x,_p.y,2,_p.col)
+            -- spr(21,_p.x-player.w/4,_p.y-player.h/4)
         end
         --powerup--
         if _p.t==4 then 
