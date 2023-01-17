@@ -13,7 +13,7 @@
 [000000]     08 blit_method 0  // 0 auto  1 software (slower but sometimes more reliable)  2 hardware (can do filtered scaling) 
 [000000]     09 foreground_sleep_ms 2 // number of milliseconds to sleep each frame. Try 10 to conserve battery power
 [000000]     10 background_sleep_ms 10 // number of milliseconds to sleep each frame when running in the background
-[000000]     11 sessions 81 // number of times program has been run
+[000000]     11 sessions 82 // number of times program has been run
 [000000]     12 rmb_key 0 // 0 for none  226 for LALT
 [000000]     13 desktop_path 
 [000000]     14 read_controllers_in_background 0
@@ -48,52 +48,59 @@
 [000000]     43 gfx_grid_lines 0
 [000000]   
 [000000]   codo_system_init
-[000320]   Compiled against SDL version: 2.0.12
-[000320]   Linked against SDL version:   2.0.12
-[000320]   Current video driver: cocoa
-[000320]   codo_reset_timer
-[000320]   codo_gui_init
-[000320]   codo_keys_init
-[000320]   codo_text_init
-[000321]   codo_video_init
-[000321]   codo_mouse_init
-[000321]   codo_joystick_init
-[000321]   Reading controller mappings: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/sdl_controllers.txt
-[000321]   searching for joysticks
-[000321]     found 0 joysticks
-[000321]   ok
-[000321] ok
-[000326] codo_load_pod: /Applications/PICO-8.app/Contents/MacOS/pico8.dat ok 
-[000329] codo_set_screen 128 128 8 100
-[000329]  window size: 640 540
-[000359]   setting filter to nearest (screen_mode 0  back page width: 128)
+[000318]   Compiled against SDL version: 2.0.12
+[000318]   Linked against SDL version:   2.0.12
+[000318]   Current video driver: cocoa
+[000318]   codo_reset_timer
+[000318]   codo_gui_init
+[000318]   codo_keys_init
+[000318]   codo_text_init
+[000319]   codo_video_init
+[000319]   codo_mouse_init
+[000319]   codo_joystick_init
+[000319]   Reading controller mappings: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/sdl_controllers.txt
+[000319]   searching for joysticks
+[000319]     found 0 joysticks
+[000319]   ok
+[000319] ok
+[000325] codo_load_pod: /Applications/PICO-8.app/Contents/MacOS/pico8.dat ok 
+[000327] codo_set_screen 128 128 8 100
+[000327]  window size: 640 540
+[000354]   setting filter to nearest (screen_mode 0  back page width: 128)
   renderer metal:
    flags: 0x0000000E ( |  | )
    texture formats (6): ARGB8888, ABGR8888, YV12, IYUV, 0x3231564e, 0x3132564e
    max texture size: 16384x16384
-[000361]  desktop size: 1440 900
-[000361] ok
-[000368] codo_sound_init mix_buffer_size: 1024
-[000368] codo_sound_init
-[000368] SDL_INIT_AUDIO ok
-[000428] SDL_OpenAudio ok
-[000428]  freq:22050
+[000356]  desktop size: 1440 900
+[000356] ok
+[000363] codo_sound_init mix_buffer_size: 1024
+[000363] codo_sound_init
+[000363] SDL_INIT_AUDIO ok
+[000424] SDL_OpenAudio ok
+[000424]  freq:22050
  channels:1
-[000428] Built-in audio drivers: 0 coreaudio 1 disk 2 dummy
-[000428] Current audio driver: coreaudio
-[000428] splore_init
-[000428] could not load favourites file: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/favourites.txt
-[002505] loading /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8
-[004193] run_cart current_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_cart_lid: 
-[011702] codo_save_png result: 0  file: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/carts/flutter1-16-23.p8.png
-[014283] window closed (14)
-[014283] codo_exit
-[014283]   cmusic_stop
-[014283]   codo_main_exit
-[014284]   codo_config_save
-[014285]   codo_sound_exit
-[014285]   codo_video_exit
-[014294]   codo_joystick_exit
-[014294]   codo_system_exit
-[014294]   codo_items_created: 1329
-[014294] ok
+[000424] Built-in audio drivers: 0 coreaudio 1 disk 2 dummy
+[000424] Current audio driver: coreaudio
+[000424] splore_init
+[000424] could not load favourites file: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/favourites.txt
+[002503] loading /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8
+[004192] run_cart current_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_filename: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/flutter1-9-23.p8 running_cart_lid: 
+[010283] exporting html: flutter.html 1 1
+[010292] 1. export html
+[010292] 1.a opening output: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/carts/flutter.html
+[010293] 1.b replacements
+[010294]  ok_
+[010311] codo_save_png result: 0  file: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/_label.png
+[010311]  ok_
+[010311] 2. writing /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/pico-8/flutter/carts/flutter.js
+[013328] window closed (14)
+[013328] codo_exit
+[013329]   cmusic_stop
+[013329]   codo_main_exit
+[013330]   codo_config_save
+[013331]   codo_sound_exit
+[013331]   codo_video_exit
+[013341]   codo_joystick_exit
+[013341]   codo_system_exit
+[013342]   codo_items_created: 1331
+[013342] ok
