@@ -32,8 +32,6 @@ end
 function update_menu()
 	for i=0,15 do
 		pal(6,rnd(i))
-		--pal(10,i)
-		pal(7,6)
 	end
 	if btnp(❎) then
 		scene="game"
@@ -46,7 +44,6 @@ function draw_menu()
 	map(0,32,4,0,16,16)
 	rect(0,0,127,127,12)
 	rect(1,1,126,126,10)
-	--rect(2,2,125,125,13)
 
 	--bg--
 	--map(32,0,0,0,16,16)
@@ -71,8 +68,6 @@ function update_game()
 	if btn(❎) and player.dead==false then
 	 	player.start=true
 	end
-	
-	
 	
 	if player.start and player.dead==false then
 		sec=time()
@@ -103,11 +98,9 @@ function update_game()
 	end	
 	---------------
  
-	
 	--simple camera
 	cam_x=player.x-64+(player.w/2)
 	camera(cam_x+cam_x_offset,0)
-
 	
 end
 
@@ -131,17 +124,8 @@ function draw_game()
 	map(48,16,bg_x,map2y,16,16)
 	map(32,16,bg_x+127,map1y-map_height,16,16)
 	map(48,16,bg_x+127,map2y-map_height,16,16)
-
-	
-	
-	--pillars--
-	--map(16,16,map_x-player.x/2,0,16,16)
 		end
 	end
-	
-	--map_x-=bg_spd
-	--map scroll----------------
-	--map(0,0,map_x,0,map_end,16)
 	
 	--level--
 	map(0,0,0,0,map_x+map_end,16)
@@ -151,8 +135,6 @@ function draw_game()
 	--rescrolling
 	map(0,0,map_x-map_end,0,map_end,16)	
 	map(0,0,map_x+map_end,0,map_end,16)
-
-	--animate diamonds
 
 	--draw particles
 	draw_particles()
@@ -263,17 +245,17 @@ function draw_game()
 
 		--rectfill(player.x-2, 44, player.x+68, 66, 0)
 		--rect(player.x-4,42,player.x+70,68,7)
-		print("you died! press up",player.x+player.dx,44,7)
+		print("you died!",player.x+player.dx+17,44,7)
 		print("score: "..flr(player.score),player.x+16+player.dx,68,7)
 		
 		--change scene--
 		--scene="dead"
-		if btnp(⬆️) then
-			player.start=false
-			scene="menu"
-			player.dead=false
-			run()
-		end
+		-- if btnp(⬆️) then
+		-- 	player.start=false
+		-- 	scene="menu"
+		-- 	player.dead=false
+		-- 	run()
+		-- end
 	end
 	
 	--textbox
@@ -327,5 +309,4 @@ function draw_game()
 			print("flutter my heart <3",cam_x+6+cam_x_offset, 18, rnd(15))
 		end	
 	end
-
 end
