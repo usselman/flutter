@@ -245,7 +245,7 @@ function draw_game()
 
 		--rectfill(player.x-2, 44, player.x+68, 66, 0)
 		--rect(player.x-4,42,player.x+70,68,7)
-		print("you died!",player.x+player.dx+17,44,7)
+		print("you died!",player.x+player.dx+18,44,7)
 		print("score: "..flr(player.score),player.x+16+player.dx,68,7)
 		
 		--change scene--
