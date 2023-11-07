@@ -37,7 +37,7 @@ function spawntrail(_x,_y)
         local _angle = rnd()
         local _dx = sin(_angle)*0.2
         local _dy = cos(_angle)*(player.h/6)
-        --spawn_gem_effect(_x + player.w/4, _y + 6)
+        spawn_gem_effect(_x + player.w/4, _y + 6)
         add_particles(_x+_dx+player.w/4,_y+_dy+6,0,4+rnd(3),{rnd(15),6,5,0})
 
         --add_particles(_x-player.w/4,_y+player.h/2,0,6+rnd(5))
@@ -110,7 +110,7 @@ function update_particles()
         -- circles
         if _p.t == 5 then
             -- Increase the radius of the circles over time
-            _p.d += 1
+            _p.d += 0.75
             -- Decrease the alpha over time to create a fading effect
             _p.col = _p.colarray[1] - flr(_p.age)
             -- Delete the particle if it is faded completely
