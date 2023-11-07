@@ -426,8 +426,8 @@
 
         if (!is_fullscreen)
           if (!p8_touch_detected)
+            // fullscreen: update every frame for safety. should be cheap!
             if (p8_update_layout_hash == update_hash) {
-              // fullscreen: update every frame for safety. should be cheap!
               // mobile: update every frame because nothing can be trusted
               //console.log("p8_update_layout(): skipping");
               requestAnimationFrame(p8_update_layout);
@@ -855,8 +855,9 @@
 
         for (j = 0; j < gamepad.buttons.length; j++)
           if (gamepad.buttons[j].value > 0 || gamepad.buttons[j].pressed) {
-            if (j < 4) button_state |= 0x10 << (((j + 1) / 2) & 1);
-            // 0 1 1 0 -- A,X -> O,X on xbox360
+            if (j < 4)
+              button_state |=
+                0x10 << (((j + 1) / 2) & 1); // 0 1 1 0 -- A,X -> O,X on xbox360
             else if (j >= 6 && j <= 8) button_state |= 0x40;
           }
 

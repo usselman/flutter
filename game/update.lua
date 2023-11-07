@@ -244,18 +244,19 @@ function draw_game()
 		state=2
 
 		--rectfill(player.x-2, 44, player.x+68, 66, 0)
-		--rect(player.x-4,42,player.x+70,68,7)
+		--rect(player.x-4,42,player.x+70,98,7)
 		print("you died!",player.x+player.dx+18,44,7)
+		print("press ⬆️ to restart",player.x+player.dx-4,54,7)
 		print("score: "..flr(player.score),player.x+16+player.dx,68,7)
 		
 		--change scene--
 		--scene="dead"
-		-- if btnp(⬆️) then
-		-- 	player.start=false
-		-- 	scene="menu"
-		-- 	player.dead=false
-		-- 	run()
-		-- end
+		if btnp(⬆️) then
+			player.start=false
+			scene="menu"
+			player.dead=false
+			run()
+		end
 	end
 	
 	--textbox
