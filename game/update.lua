@@ -237,7 +237,8 @@ function draw_game()
 
 		player_update()
 		draw_particles()
-		
+
+		--spawn_gem_effect(player.x + player.w/4, player.y + 6)
 		deathtrail(player.x+player.w/4,player.y-map1y-player.h)
 		
 		player.dx=0

@@ -37,7 +37,7 @@ function spawntrail(_x,_y)
         local _angle = rnd()
         local _dx = sin(_angle)*0.2
         local _dy = cos(_angle)*(player.h/6)
-
+        --spawn_gem_effect(_x + player.w/4, _y + 6)
         add_particles(_x+_dx+player.w/4,_y+_dy+6,0,4+rnd(3),{rnd(15),6,5,0})
 
         --add_particles(_x-player.w/4,_y+player.h/2,0,6+rnd(5))
@@ -58,6 +58,7 @@ function spawndust(_x,_y)
         local _angle=rnd()
         local _dx=sin(_angle)*0.8
         local _dy=cos(angle)*0.8
+        
         add_particles(_x-_dx+6,_y-_dy+4,2,rnd(3),{6,5,1})
     end   
 end
@@ -66,14 +67,22 @@ function deathtrail(_x,_y)
         local _angle = rnd()
         local _dx = sin(_angle)*0.1
         local _dy = cos(_angle)*0.1
-
         add_particles(_x+_dx+player.w/4,_y+_dy+6,3,8+rnd(12),{7,6,5,0})
         --spr(21,_p.x-3,_p.y-player.h/2)
 end
 
+function spawn_gem_effect(_x, _y)
+    local colors = {13, 14, 15}  -- Define colors for the circles
+    for i=1,#colors do
+        add_particles(_x, _y, 5, i, {colors[i]})
+    end
+end
+
+
 function diamondtext(_x,_y) 
     
     add_particles(_x+player.w/4,_y+6,4,5,{12,6,5,0})
+    spawn_gem_effect(_x + player.w/4, _y + 6)
 
 end
 
@@ -97,6 +106,17 @@ function update_particles()
                 _p.col = _p.colarray[_ci]
             end 
             
+        end
+        -- circles
+        if _p.t == 5 then
+            -- Increase the radius of the circles over time
+            _p.d += 1
+            -- Decrease the alpha over time to create a fading effect
+            _p.col = _p.colarray[1] - flr(_p.age)
+            -- Delete the particle if it is faded completely
+            if _p.col <= 0 then
+                del(particle, particle[i])
+            end
         end
         
     end
@@ -136,6 +156,10 @@ function draw_particles()
         --powerup--
         if _p.t==4 then 
             print("+100!",_p.x,_p.y-12,_p.col)
+        end
+        if _p.t == 5 then
+            -- Use circfill to draw the circles with the current radius and color
+            circ(_p.x, _p.y, _p.d, _p.col)
         end
     end
 
