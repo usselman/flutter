@@ -72,6 +72,10 @@ function player_update()
 		player.ducking=false	
 	end	
 	
+	-- record gif
+	if btnp(🅾️) then
+		extcmd("video")
+	end
 	
 	--floor
 	if player.dy>0 then
