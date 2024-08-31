@@ -48,6 +48,7 @@ function player_update()
 		player.dy-=player.boost
 		player.landed=false
 		player.jumping=true
+
 		--jump!--
 		sfx(0)		
 	end	

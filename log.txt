@@ -13,7 +13,7 @@
 [000000]     08 blit_method 0  // 0 auto  1 software (slower but sometimes more reliable)  2 hardware (can do filtered scaling) 
 [000000]     09 foreground_sleep_ms 2 // number of milliseconds to sleep each frame. Try 10 to conserve battery power
 [000000]     10 background_sleep_ms 10 // number of milliseconds to sleep each frame when running in the background
-[000000]     11 sessions 98 // number of times program has been run
+[000000]     11 sessions 100 // number of times program has been run
 [000000]     12 rmb_key 0 // 0 for none  226 for LALT
 [000000]     13 desktop_path 
 [000000]     14 read_controllers_in_background 0
@@ -48,60 +48,80 @@
 [000000]     43 gfx_grid_lines 0
 [000000]   
 [000000]   codo_system_init
-[000550]   Compiled against SDL version: 2.0.12
-[000550]   Linked against SDL version:   2.0.12
-[000550]   Current video driver: cocoa
-[000551]   codo_reset_timer
-[000551]   codo_gui_init
-[000551]   codo_keys_init
-[000551]   codo_text_init
-[000551]   codo_video_init
-[000551]   codo_mouse_init
-[000551]   codo_joystick_init
-[000551]   Reading controller mappings: /Users/shirishsarkar/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/flutter/sdl_controllers.txt
-[000551]   searching for joysticks
-[000551]     found 0 joysticks
-[000551]   ok
-[000552] ok
-[000562] codo_load_pod: /Applications/PICO-8.app/Contents/MacOS/pico8.dat ok 
-[000565] codo_set_screen 128 128 8 100
-[000565]  window size: 640 540
-[000610]   setting filter to nearest (screen_mode 0  back page width: 128)
+[000636]   Compiled against SDL version: 2.0.12
+[000636]   Linked against SDL version:   2.0.12
+[000636]   Current video driver: cocoa
+[000636]   codo_reset_timer
+[000636]   codo_gui_init
+[000636]   codo_keys_init
+[000636]   codo_text_init
+[000637]   codo_video_init
+[000637]   codo_mouse_init
+[000637]   codo_joystick_init
+[000637]   Reading controller mappings: /Users/shirishsarkar/flutter/sdl_controllers.txt
+[000637]   searching for joysticks
+[000637]     found 0 joysticks
+[000637]   ok
+[000637] ok
+[000742] codo_load_pod: /Applications/PICO-8.app/Contents/MacOS/pico8.dat ok 
+[000745] codo_set_screen 128 128 8 100
+[000746]  window size: 640 540
+[000805]   setting filter to nearest (screen_mode 0  back page width: 128)
   renderer metal:
    flags: 0x0000000E ( |  | )
    texture formats (6): ARGB8888, ABGR8888, YV12, IYUV, 0x3231564e, 0x3132564e
    max texture size: 16384x16384
-[000612]  desktop size: 1440 900
-[000612] ok
-[000622] codo_sound_init mix_buffer_size: 1024
-[000622] codo_sound_init
-[000622] SDL_INIT_AUDIO ok
-[000711] SDL_OpenAudio ok
-[000711]  freq:22050
+[000809]  desktop size: 1440 900
+[000809] ok
+[000820] codo_sound_init mix_buffer_size: 1024
+[000820] codo_sound_init
+[000820] SDL_INIT_AUDIO ok
+[000903] SDL_OpenAudio ok
+[000903]  freq:22050
  channels:1
-[000711] Built-in audio drivers: 0 coreaudio 1 disk 2 dummy
-[000711] Current audio driver: coreaudio
-[000712] splore_init
-[000712] could not load favourites file: /Users/shirishsarkar/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/flutter/favourites.txt
-[003023] loading /Users/shirishsarkar/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/flutter/flutter1-17-23.p8
-[004694] run_cart current_filename: /Users/shirishsarkar/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/flutter/flutter1-17-23.p8 running_filename: /Users/shirishsarkar/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/flutter/flutter1-17-23.p8 running_cart_lid: 
-[039247] run_cart current_filename: /Users/shirishsarkar/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/flutter/flutter1-17-23.p8 running_filename: /Users/shirishsarkar/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/flutter/flutter1-17-23.p8 running_cart_lid: 
-[095498] exporting html: flutter.html 1 1
-[095503] 1. export html
-[095503] 1.a opening output: /Users/shirishsarkar/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/flutter/carts/flutter.html
-[095503] 1.b replacements
-[095503]  ok_
-[095511] codo_save_png result: 0  file: /Users/shirishsarkar/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/flutter/_label.png
-[095511]  ok_
-[095511] 2. writing /Users/shirishsarkar/Library/Mobile Documents/com~apple~CloudDocs/Documents/_CODE/flutter/carts/flutter.js
-[097226] window closed (14)
-[097226] codo_exit
-[097226]   cmusic_stop
-[097226]   codo_main_exit
-[097227]   codo_config_save
-[097228]   codo_sound_exit
-[097228]   codo_video_exit
-[097232]   codo_joystick_exit
-[097232]   codo_system_exit
-[097232]   codo_items_created: 1351
-[097232] ok
+[000903] Built-in audio drivers: 0 coreaudio 1 disk 2 dummy
+[000903] Current audio driver: coreaudio
+[000903] splore_init
+[000903] could not load favourites file: /Users/shirishsarkar/flutter/favourites.txt
+[003016] loading /Users/shirishsarkar/flutter/flutter-valley.p8
+[007321] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[023501] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[155257] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[170208] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[452123] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[664705] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[772886] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[807632] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[833137] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[1052275] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[1089697] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[1130828] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[1175032] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[1243005] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[1272514] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[1279149] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[1299063] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[1362670] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[1370306] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[1378160] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[1402859] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[1561534] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[1574454] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[1756843] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[1766601] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[1858949] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[1866203] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[1870144] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[2218756] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[2230952] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[2233788] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[2278533] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[2286423] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[2302170] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[2313562] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[2333326] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[2359639] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[2367429] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[2413037] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[2428331] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[2472162] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 

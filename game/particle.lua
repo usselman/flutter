@@ -45,7 +45,7 @@ function spawntrail(_x,_y)
 end
 
 function spawncircle(_x,_y)
-    if rnd()>0.3 then
+    if rnd()>0.1 then
         local _angle = rnd()
         local _dx = sin(_angle)*0.6
         local _dy = cos(_angle)*0.6
@@ -110,7 +110,8 @@ function update_particles()
         -- circles
         if _p.t == 5 then
             -- Increase the radius of the circles over time
-            _p.d += 0.75
+            --_p.d += 0.75
+            _p.d += 0.5
             -- Decrease the alpha over time to create a fading effect
             _p.col = _p.colarray[1] - flr(_p.age)
             -- Delete the particle if it is faded completely
@@ -159,7 +160,8 @@ function draw_particles()
         end
         if _p.t == 5 then
             -- Use circfill to draw the circles with the current radius and color
-            circ(_p.x, _p.y, _p.d, _p.col)
+            -- circ(_p.x, _p.y, _p.d, _p.col)
+            pset(_p.x - 3, _p.y, _p.d, _p.col)
         end
     end
 
