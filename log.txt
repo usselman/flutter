@@ -140,3 +140,17 @@
 [5583251] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
 [5592165] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
 [5614064] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[5707346] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[5713020] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[5718516] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[5741656] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[5797734] saving gif to: /Users/shirishsarkar/Desktop/flutter-valley_0.gif
+[5918833] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[5928740] exporting html: flutter-valley.html 1 1
+[5928750] 1. export html
+[5928750] 1.a opening output: /Users/shirishsarkar/flutter/carts/flutter-valley.html
+[5928750] 1.b replacements
+[5928751]  ok_
+[5928766] codo_save_png result: 0  file: /Users/shirishsarkar/flutter/_label.png
+[5928766]  ok_
+[5928766] 2. writing /Users/shirishsarkar/flutter/carts/flutter-valley.js
