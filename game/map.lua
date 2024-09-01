@@ -85,7 +85,9 @@ function place_tile(t)
 				end	
 				if _x%3==1 then
 					--pot=68
+					--pal(12, rnd(15))
 					diamond=104
+					-- pal()
 					grass=116
 					
 				end

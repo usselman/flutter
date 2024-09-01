@@ -160,8 +160,8 @@ function draw_particles()
         end
         if _p.t == 5 then
             -- Use circfill to draw the circles with the current radius and color
-            -- circ(_p.x, _p.y, _p.d, _p.col)
-            pset(_p.x - 3, _p.y, _p.d, _p.col)
+            circ(_p.x, _p.y, _p.d, _p.col)
+            -- pset(_p.x - 3, _p.y, _p.d, _p.col)
         end
     end
 

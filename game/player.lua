@@ -53,7 +53,7 @@ function player_update()
 		sfx(0)		
 	end	
 
-	if btnp(❎) and player.falling and player.dead==false then
+	if btnp(❎) and (player.falling or player.jumping) and player.dead==false then
 
 		--flutterjump
 		player.dy-=player.boost/0.5
