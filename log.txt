@@ -13,7 +13,7 @@
 [000000]     08 blit_method 0  // 0 auto  1 software (slower but sometimes more reliable)  2 hardware (can do filtered scaling) 
 [000000]     09 foreground_sleep_ms 2 // number of milliseconds to sleep each frame. Try 10 to conserve battery power
 [000000]     10 background_sleep_ms 10 // number of milliseconds to sleep each frame when running in the background
-[000000]     11 sessions 106 // number of times program has been run
+[000000]     11 sessions 108 // number of times program has been run
 [000000]     12 rmb_key 0 // 0 for none  226 for LALT
 [000000]     13 desktop_path 
 [000000]     14 read_controllers_in_background 0
@@ -48,56 +48,51 @@
 [000000]     43 gfx_grid_lines 0
 [000000]   
 [000000]   codo_system_init
-[000871]   Compiled against SDL version: 2.0.12
-[000872]   Linked against SDL version:   2.0.12
-[000872]   Current video driver: cocoa
-[000872]   codo_reset_timer
-[000872]   codo_gui_init
-[000872]   codo_keys_init
-[000872]   codo_text_init
-[000873]   codo_video_init
-[000873]   codo_mouse_init
-[000873]   codo_joystick_init
-[000873]   Reading controller mappings: /Users/shirishsarkar/flutter/sdl_controllers.txt
-[000873]   searching for joysticks
-[000873]     found 0 joysticks
-[000873]   ok
-[000873] ok
-[000884] codo_load_pod: /Applications/PICO-8.app/Contents/MacOS/pico8.dat ok 
-[000887] codo_set_screen 128 128 8 100
-[000887]  window size: 640 540
-[001090]   setting filter to nearest (screen_mode 0  back page width: 128)
+[000663]   Compiled against SDL version: 2.0.12
+[000663]   Linked against SDL version:   2.0.12
+[000663]   Current video driver: cocoa
+[000663]   codo_reset_timer
+[000663]   codo_gui_init
+[000663]   codo_keys_init
+[000663]   codo_text_init
+[000664]   codo_video_init
+[000664]   codo_mouse_init
+[000664]   codo_joystick_init
+[000664]   Reading controller mappings: /Users/shirishsarkar/flutter/sdl_controllers.txt
+[000664]   searching for joysticks
+[000664]     found 0 joysticks
+[000664]   ok
+[000664] ok
+[000674] codo_load_pod: /Applications/PICO-8.app/Contents/MacOS/pico8.dat ok 
+[000677] codo_set_screen 128 128 8 100
+[000677]  window size: 640 540
+[000736]   setting filter to nearest (screen_mode 0  back page width: 128)
   renderer metal:
    flags: 0x0000000E ( |  | )
    texture formats (6): ARGB8888, ABGR8888, YV12, IYUV, 0x3231564e, 0x3132564e
    max texture size: 16384x16384
-[001100]  desktop size: 1920 1080
-[001100] ok
-[001123] codo_sound_init mix_buffer_size: 1024
-[001123] codo_sound_init
-[001123] SDL_INIT_AUDIO ok
-[001237] SDL_OpenAudio ok
-[001237]  freq:22050
+[000740]  desktop size: 1440 900
+[000740] ok
+[000751] codo_sound_init mix_buffer_size: 1024
+[000751] codo_sound_init
+[000751] SDL_INIT_AUDIO ok
+[000851] SDL_OpenAudio ok
+[000852]  freq:22050
  channels:1
-[001237] Built-in audio drivers: 0 coreaudio 1 disk 2 dummy
-[001237] Current audio driver: coreaudio
-[001238] splore_init
-[001238] could not load favourites file: /Users/shirishsarkar/flutter/favourites.txt
-[003428] loading /Users/shirishsarkar/flutter/flutter-valley.p8
-[005106] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
-[037558] codo_save_png result: 0  file: /Users/shirishsarkar/flutter/carts/flutter-valley-sprites.png
-[1841665] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
-[1926629] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
-[1991048] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
-[2002700] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
-[2004789] window closed (14)
-[2004789] codo_exit
-[2004789]   cmusic_stop
-[2004789]   codo_main_exit
-[2004790]   codo_config_save
-[2004790]   codo_sound_exit
-[2004790]   codo_video_exit
-[2004801]   codo_joystick_exit
-[2004801]   codo_system_exit
-[2004802]   codo_items_created: 1391
-[2004802] ok
+[000852] Built-in audio drivers: 0 coreaudio 1 disk 2 dummy
+[000852] Current audio driver: coreaudio
+[000852] splore_init
+[000852] could not load favourites file: /Users/shirishsarkar/flutter/favourites.txt
+[002952] loading /Users/shirishsarkar/flutter/flutter-valley.p8
+[004638] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[018516] window closed (14)
+[018516] codo_exit
+[018516]   cmusic_stop
+[018516]   codo_main_exit
+[018518]   codo_config_save
+[018519]   codo_sound_exit
+[018519]   codo_video_exit
+[018536]   codo_joystick_exit
+[018536]   codo_system_exit
+[018537]   codo_items_created: 1309
+[018537] ok
