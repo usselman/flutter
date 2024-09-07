@@ -180,3 +180,14 @@
 [3199742] codo_save_png result: 0  file: /Users/shirishsarkar/flutter/_label.png
 [3199743]  ok_
 [3199743] 2. writing /Users/shirishsarkar/flutter/carts/flutter-valley-tourney.js
+[3243820] window closed (14)
+[3243822] codo_exit
+[3243822]   cmusic_stop
+[3243823]   codo_main_exit
+[3243825]   codo_config_save
+[3243826]   codo_sound_exit
+[3243826]   codo_video_exit
+[3243838]   codo_joystick_exit
+[3243838]   codo_system_exit
+[3243839]   codo_items_created: 3250
+[3243839] ok

@@ -51,6 +51,7 @@ function _init()
 		spd=0,
 		high_score=0,
 		new_high=false,
+		gif_timer=0,
 	}
 	
   enemyamt=4	
