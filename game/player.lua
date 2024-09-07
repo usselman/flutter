@@ -86,6 +86,9 @@ function player_update()
 		spawndust(player.x,player.y)
 		player.dy+=1
 		player.falling=true
+		if player.landed then
+			player.ducking=false
+		end
 		--player.y = 2
 	else 
 		player.ducking=false	
