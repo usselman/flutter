@@ -5,6 +5,7 @@ function _init()
 	--menu
 	scene="menu"
 	state=0
+	music_on=true
 
 	--simple camera
 	cam_x=0

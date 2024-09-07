@@ -1,8 +1,15 @@
 --update and draw
+music_on=true
 music(13,100,7)
 
 function _update()
 	update_particles()
+	if music_on then
+		menuitem(1, "turn music off", function() music(-1) music_on=false end)
+	end
+	if not music_on then
+		menuitem(1, "turn music on", function() music(13,100,7) music_on=true end)
+	end
 	
  --menu--
  if scene=="menu" then
