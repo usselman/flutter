@@ -155,9 +155,11 @@ function draw_game()
 	diamonds()
 	
 	if player.score>2000 then
+		
 		for i=1,#enemy_list do
   			enemy_update(enemy_list[i])
   			enemy_animate(enemy_list[i])
+			
   		spr(enemy_list[i].sp,enemy_list[i].x,enemy_list[i].y)
 
 	

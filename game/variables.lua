@@ -61,7 +61,7 @@ function _init()
   sp=33,
    -- this or something similar so they don't end up in the same spot
   --x=map_end,
-  x=player.x+cam_x_offset+80,
+  x=player.x+cam_x_offset+120,
   y=80/i,
   w=8,
   h=8,
