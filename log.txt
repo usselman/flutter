@@ -172,3 +172,11 @@
 [3044267] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
 [3097851] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
 [3140183] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[3199713] exporting html: flutter-valley-tourney.html 1 1
+[3199724] 1. export html
+[3199724] 1.a opening output: /Users/shirishsarkar/flutter/carts/flutter-valley-tourney.html
+[3199724] 1.b replacements
+[3199725]  ok_
+[3199742] codo_save_png result: 0  file: /Users/shirishsarkar/flutter/_label.png
+[3199743]  ok_
+[3199743] 2. writing /Users/shirishsarkar/flutter/carts/flutter-valley-tourney.js
