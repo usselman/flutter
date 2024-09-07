@@ -70,11 +70,11 @@ function player_update()
 		sfx(0)		
 	end	
 
-	if btnp(❎) and (player.falling or player.jumping) and player.dead==false then
+	if btnp(❎) and (player.falling or player.jumping) and player.dead==false and player.landed==false then
 
 		--flutterjump
 		player.dy-=player.boost/0.5
-		player.landed=false
+		--player.landed=false
 		--player.jumping=true
 		sfx(5)
 		player.dy=limit_speed(player.dy,player.max_dy)	
@@ -86,7 +86,7 @@ function player_update()
 		spawndust(player.x,player.y)
 		player.dy+=1
 		player.falling=true
-		if player.landed then
+		if player.dy==0 then
 			player.ducking=false
 		end
 		--player.y = 2
