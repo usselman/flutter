@@ -21,7 +21,6 @@ function player_update()
 		speed_up(player.score)
 	end
 
-	-- Check if current score exceeds the stored high score
 	if player.dead then
 		if player.score > player.high_score then
 			-- Update the high score
@@ -30,7 +29,8 @@ function player_update()
 			player.new_high = true
 
 			-- Trigger GIF recording
-			extcmd("video")
+			--extcmd("video")
+			
 		end
 	end
 

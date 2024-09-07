@@ -70,6 +70,7 @@ function draw_menu()
 end
 
 function update_game()
+
  --game state--
  	
 	rand=rnd(16)
@@ -78,7 +79,7 @@ function update_game()
 	end
 	
 	if player.start and player.dead==false then
-		sec=time()
+		--sec=time()
 		if player.start and trigstart==false then
 			trigstart=true
 		else 
@@ -261,10 +262,13 @@ function draw_game()
 		print("score: "..flr(player.score),player.x+16+player.dx,68,7)
 		print("highest score: "..flr(player.high_score),player.x+player.dx,78,7)
 
-		
 		--change scene--
 		--scene="dead"
 		if btnp(⬆️) then
+			if player.score==dget(0) then
+				extcmd("screen")
+				extcmd("video")
+			end
 			player.start=false
 			scene="menu"
 			player.dead=false

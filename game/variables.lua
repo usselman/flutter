@@ -12,7 +12,7 @@ function _init()
 	cam_x_offset=32
 
 	 -- Set up persistent storage with a unique identifier
-	 cartdata("flutter-valley")
+	 cartdata("flutter-valley-09072024-test-7")
 
 	 -- Retrieve the stored high score, default to 0 if not set
 	 --player.high_score = dget(0) or 0
@@ -51,7 +51,6 @@ function _init()
 		spd=0,
 		high_score=0,
 		new_high=false,
-		gif_timer=0,
 	}
 	
   enemyamt=4	
