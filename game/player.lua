@@ -2,6 +2,9 @@
 
 function player_update()
 
+	player.high_score=dget(0)
+	player.new_high=false
+
 	if player.score<0 then
 		player.score=0
 	end
@@ -17,6 +20,20 @@ function player_update()
 		player.score+=player.spd/2
 		speed_up(player.score)
 	end
+
+	-- Check if current score exceeds the stored high score
+	if player.dead then
+		if player.score > player.high_score then
+			-- Update the high score
+			player.high_score = player.score
+			dset(0, player.high_score)  -- Store the new high score
+			player.new_high = true
+
+			-- Trigger GIF recording
+			extcmd("video")
+		end
+	end
+
 	
 	--record score 
 	poke2(0x5f80, player.score)
@@ -45,7 +62,7 @@ function player_update()
 	--jump
 	if btnp(❎) and player.dead==false
 	and player.landed then
-		player.dy-=player.boost
+		player.dy-=player.boost/2
 		player.landed=false
 		player.jumping=true
 
@@ -67,15 +84,17 @@ function player_update()
 	if btn(⬇️) and player.dead==false then
 		player.ducking=true
 		spawndust(player.x,player.y)
+		player.dy+=1
+		player.falling=true
 		--player.y = 2
 	else 
 		player.ducking=false	
 	end	
 	
 	-- record gif
-	if btnp(🅾️) then
-		extcmd("video")
-	end
+	-- if btnp(🅾️) then
+	-- 	extcmd("video")
+	-- end
 	
 	--floor
 	if player.dy>0 then
@@ -143,6 +162,7 @@ function player_update()
 		if collide_map(player,"right",1) then
 			player.dx=0
 			player.dx+=-6
+			player.dy+=2
 				--player.dx+=-
 				player.dy+=.5
 			if rnd()>0.5 then
@@ -209,7 +229,7 @@ function player_animate()
 			fset(65,0,false)
 			fset(81,0,false)
 			fset(114,0,false)
-			player.dy+=1
+			-- player.dy+=1
 			player.falling=true
 		elseif player.landed then
 			

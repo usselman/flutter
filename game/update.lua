@@ -53,9 +53,10 @@ function draw_menu()
 	addwind(26,62,90,80,
 	{"     x:jump!     ",
 	 "    left:slow!   ",
-	 "  x in air:fly!  ",
-	 "  down = duck!   ",
-	 "press x to start!"
+	--  "  x in air:fly!  ",
+	 "    down:duck!   ",
+	 "press x to start!",
+	 "good luck flutter!",
 	})
 	drawind()
 
@@ -247,8 +248,10 @@ function draw_game()
 		--rectfill(player.x-2, 44, player.x+68, 66, 0)
 		--rect(player.x-4,42,player.x+70,98,7)
 		print("you died!",player.x+player.dx+18,44,7)
-		print("press ⬆️ to restart",player.x+player.dx-4,54,7)
+		print("press up to restart",player.x+player.dx-4,54,7)
 		print("score: "..flr(player.score),player.x+16+player.dx,68,7)
+		print("highest score: "..flr(player.high_score),player.x+player.dx,78,7)
+
 		
 		--change scene--
 		--scene="dead"
