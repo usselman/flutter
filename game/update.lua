@@ -10,6 +10,7 @@ function _update()
 	if not music_on then
 		menuitem(1, "turn music on", function() music(13,100,7) music_on=true end)
 	end
+	menuitem(2, "save gif"	, function() extcmd("video") end)
 	
  --menu--
  if scene=="menu" then
