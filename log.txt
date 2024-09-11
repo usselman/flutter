@@ -94,3 +94,23 @@
 [119952] codo_save_png result: 0  file: /Users/shirishsarkar/Desktop/flutter-valley_1.png
 [119952] saving gif to: /Users/shirishsarkar/Desktop/flutter-valley_1.gif
 [120544] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[169555] exporting html: flutter-valley.html 1 1
+[169564] 1. export html
+[169564] 1.a opening output: /Users/shirishsarkar/flutter/carts/flutter-valley.html
+[169564] 1.b replacements
+[169565]  ok_
+[169579] codo_save_png result: 0  file: /Users/shirishsarkar/flutter/_label.png
+[169579]  ok_
+[169579] 2. writing /Users/shirishsarkar/flutter/carts/flutter-valley.js
+[179339] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[183366] window closed (14)
+[183366] codo_exit
+[183366]   cmusic_stop
+[183366]   codo_main_exit
+[183368]   codo_config_save
+[183369]   codo_sound_exit
+[183369]   codo_video_exit
+[183388]   codo_joystick_exit
+[183388]   codo_system_exit
+[183389]   codo_items_created: 1392
+[183389] ok
