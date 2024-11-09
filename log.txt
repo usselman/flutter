@@ -13,7 +13,7 @@
 [000000]     08 blit_method 0  // 0 auto  1 software (slower but sometimes more reliable)  2 hardware (can do filtered scaling) 
 [000000]     09 foreground_sleep_ms 2 // number of milliseconds to sleep each frame. Try 10 to conserve battery power
 [000000]     10 background_sleep_ms 10 // number of milliseconds to sleep each frame when running in the background
-[000000]     11 sessions 114 // number of times program has been run
+[000000]     11 sessions 115 // number of times program has been run
 [000000]     12 rmb_key 0 // 0 for none  226 for LALT
 [000000]     13 desktop_path 
 [000000]     14 read_controllers_in_background 0
@@ -48,69 +48,48 @@
 [000000]     43 gfx_grid_lines 0
 [000000]   
 [000001]   codo_system_init
-[000678]   Compiled against SDL version: 2.0.12
-[000679]   Linked against SDL version:   2.0.12
-[000679]   Current video driver: cocoa
-[000679]   codo_reset_timer
-[000679]   codo_gui_init
-[000679]   codo_keys_init
-[000679]   codo_text_init
-[000679]   codo_video_init
-[000679]   codo_mouse_init
-[000679]   codo_joystick_init
-[000680]   Reading controller mappings: /Users/shirishsarkar/flutter/sdl_controllers.txt
-[000680]   searching for joysticks
-[000680]     found 0 joysticks
-[000680]   ok
-[000680] ok
-[000691] codo_load_pod: /Applications/PICO-8.app/Contents/MacOS/pico8.dat ok 
-[000694] codo_set_screen 128 128 8 100
-[000694]  window size: 640 540
-[001012]   setting filter to nearest (screen_mode 0  back page width: 128)
+[000845]   Compiled against SDL version: 2.0.12
+[000845]   Linked against SDL version:   2.0.12
+[000845]   Current video driver: cocoa
+[000846]   codo_reset_timer
+[000846]   codo_gui_init
+[000847]   codo_keys_init
+[000847]   codo_text_init
+[000847]   codo_video_init
+[000847]   codo_mouse_init
+[000847]   codo_joystick_init
+[000847]   Reading controller mappings: /Users/shirishsarkar/flutter/sdl_controllers.txt
+[000847]   searching for joysticks
+[000847]     found 0 joysticks
+[000847]   ok
+[000848] ok
+[000858] codo_load_pod: /Applications/PICO-8.app/Contents/MacOS/pico8.dat ok 
+[000861] codo_set_screen 128 128 8 100
+[000861]  window size: 640 540
+[001161]   setting filter to nearest (screen_mode 0  back page width: 128)
   renderer metal:
    flags: 0x0000000E ( |  | )
    texture formats (6): ARGB8888, ABGR8888, YV12, IYUV, 0x3231564e, 0x3132564e
    max texture size: 16384x16384
-[001020]  desktop size: 1920 1080
-[001020] ok
-[001041] codo_sound_init mix_buffer_size: 1024
-[001041] codo_sound_init
-[001041] SDL_INIT_AUDIO ok
-[001187] SDL_OpenAudio ok
-[001187]  freq:22050
+[001169]  desktop size: 3440 1440
+[001169] ok
+[001186] codo_sound_init mix_buffer_size: 1024
+[001186] codo_sound_init
+[001186] SDL_INIT_AUDIO ok
+[001355] SDL_OpenAudio ok
+[001355]  freq:22050
  channels:1
-[001187] Built-in audio drivers: 0 coreaudio 1 disk 2 dummy
-[001187] Current audio driver: coreaudio
-[001187] splore_init
-[001187] could not load favourites file: /Users/shirishsarkar/flutter/favourites.txt
-[003435] loading /Users/shirishsarkar/flutter/flutter-valley.p8
-[005116] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
-[010242] saving gif to: /Users/shirishsarkar/Desktop/flutter-valley_0.gif
-[049202] saving screenshot to: /Users/shirishsarkar/Desktop/flutter-valley_0.png
-[049282] codo_save_png result: 0  file: /Users/shirishsarkar/Desktop/flutter-valley_0.png
-[049282] saving gif to: /Users/shirishsarkar/Desktop/flutter-valley_0.gif
-[049966] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
-[119875] saving screenshot to: /Users/shirishsarkar/Desktop/flutter-valley_1.png
-[119952] codo_save_png result: 0  file: /Users/shirishsarkar/Desktop/flutter-valley_1.png
-[119952] saving gif to: /Users/shirishsarkar/Desktop/flutter-valley_1.gif
-[120544] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
-[169555] exporting html: flutter-valley.html 1 1
-[169564] 1. export html
-[169564] 1.a opening output: /Users/shirishsarkar/flutter/carts/flutter-valley.html
-[169564] 1.b replacements
-[169565]  ok_
-[169579] codo_save_png result: 0  file: /Users/shirishsarkar/flutter/_label.png
-[169579]  ok_
-[169579] 2. writing /Users/shirishsarkar/flutter/carts/flutter-valley.js
-[179339] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
-[183366] window closed (14)
-[183366] codo_exit
-[183366]   cmusic_stop
-[183366]   codo_main_exit
-[183368]   codo_config_save
-[183369]   codo_sound_exit
-[183369]   codo_video_exit
-[183388]   codo_joystick_exit
-[183388]   codo_system_exit
-[183389]   codo_items_created: 1392
-[183389] ok
+[001355] Built-in audio drivers: 0 coreaudio 1 disk 2 dummy
+[001355] Current audio driver: coreaudio
+[001355] splore_init
+[001356] could not load favourites file: /Users/shirishsarkar/flutter/favourites.txt
+[003543] loading /Users/shirishsarkar/flutter/flutter-valley.p8
+[005231] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[023145] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[15842710] codo_save_png result: 0  file: /Users/shirishsarkar/flutter/carts/flutter.p8.png
+[15855555] launch: [open "/Users/shirishsarkar/flutter/carts/"] result: 0
+[39939436] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[40296262] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[40308533] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[40578477] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
+[40604767] run_cart current_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_filename: /Users/shirishsarkar/flutter/flutter-valley.p8 running_cart_lid: 
